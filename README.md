@@ -78,6 +78,10 @@ Display tiers respond on their own (the breakpoints live inside `tokens.css`), s
 
 Tokens follow the [W3C Design Tokens (DTCG)](https://www.designtokens.org/) format. Type scale and layout were generated with [baseline-to-layers](https://github.com/YEYE0516/baseline-to-layers) (Müller-Brockmann's baseline-grid method).
 
+## Figma
+
+[C1XX Foundations](https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si) — three collections (Primitives · Semantic with Light/Dark modes · Theme · site), 28 text styles, 3 effect styles, every variable carrying its CSS name as code syntax. Built from the JSON through the Figma MCP, not by hand; the JSON stays the source of truth.
+
 ## Status
 
 See [docs/plan.md](docs/plan.md).

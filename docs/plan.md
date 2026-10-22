@@ -24,7 +24,7 @@
   产出：`color.json`、对比度报告 · 标准：所有前景/背景对达 WCAG AA；`foundations/` 里不出现任何品牌色值
 - [x] **10/28 周三 · Day 5** — 组装上线：合并为 DTCG `tokens.json`；构建脚本生成 `tokens.css` + Tailwind theme；套到现网站只换值不改结构；README 写三层规则、命名规范、新增 token 五步；打 tag v0.1.0
   产出：网站带底座上线、README、v0.1.0 · 标准：网站 CSS 里 grep 不到裸 hex 和裸 px（1px 边框除外）；改一个 token 整站跟着变
-- [ ] **10/29 周四 · Figma 对照** — 用 Figma MCP 把 `tokens.json` 导成 Primitives、Semantic 两个 collection（含 light/dark modes）；建 text styles 对应字阶；不画组件
+- [x] **10/29 周四 · Figma 对照** — 用 Figma MCP 把 `tokens.json` 导成 Primitives、Semantic 两个 collection（含 light/dark modes）；建 text styles 对应字阶；不画组件
   产出：Figma 文件 v0.1 · 标准：collection 里每个 variable 名和 JSON 一致
 
 周末 10/24–10/25 是缓冲。
