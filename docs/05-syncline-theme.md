@@ -56,6 +56,24 @@ Star 和 Bloom 的 strong 推得比较远（黄→深赭、粉→玫红），因
 
 规则：light 模式下 base 填充的控件必须靠 `on` 色文字（全部 ≥ 6.3:1）或 `border/strong` 描边来界定，不能只靠色块边缘。这正是原型现在的做法（pastel 按钮 + 黑字 + 阴影），现在有了数字。Dark 模式下六个 base 全部 ≥ 3.45:1，没有这个问题。
 
+## Figma：三层 mode
+
+同一天把 Figma 也接上了。结构和 JSON 的合同一一对应：
+
+```
+Energy   (6 modes: cloud · peak · star · fuzz · bloom · jelly)
+   energy/base · strong-light · strong-dark · soft-light · soft-dark · on
+Product  (2 modes: site · syncline)
+   accent/base-light … on-dark  →  site 指向 neutral，syncline 指向 Energy
+   signal · focus-light · shadow-hue · canvas-light · font/body · display · mono
+Semantic (2 modes: Light · Dark)
+   action/* · fg/on-accent · fg/accent · focus/ring · bg/canvas  →  alias 到 Product
+```
+
+组件只绑 Semantic。一个 frame 上设三个 collection 的 mode，就能得到 2 × 2 × 6 = 24 种组合；specimen 页第三排是 6 个 form 的 Light 卡 + 2 张 Dark 卡，全部同一组变量。
+
+之前以为 Pro 计划一个 collection 限 4 个 mode，实测可以超过 6 个，已推翻。
+
 ## 明天（Day 2）
 
-Figma 里建 `Energy` collection，六个 energy form 六个 mode（实测这个 team 的 collection 可以超过 6 个 mode；之前以为 Pro 限 4 个，是过时的记忆，已用脚本验证推翻）。Semantic 的 `action/*` 和 `fg/on-accent` 改成 alias 到 `Energy` 的 base / strong / soft / on，切 mode 整页跟着变。
+组件：Button（primary / secondary / ghost × default / hover / pressed / disabled）、Input、Chip、Card，绑 Semantic 角色和 space / radius 变量；在 Syncline 模式下用 Inter，display 用 New York。
