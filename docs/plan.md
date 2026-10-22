@@ -20,7 +20,7 @@
   产出：`foundations/typography.json`、`layout.json` · 标准：每档 line-height 都是 4 的倍数；栏宽给出 `max-width` 的 ch 值
 - [x] **10/26 周一 · Day 3** — 间距 / 圆角 / 层级 / 动效：间距刻度数字命名约 10 档；圆角 3 档 + full；阴影 2–3 档；duration 三档、easing 三条（enter / exit / emphasis）、reduced-motion 规则
   产出：`spacing.json`、`shape.json`、`motion.json` · 标准：间距全是 4 的倍数；motion 的值能被 GSAP 直接引用
-- [ ] **10/27 周二 · Day 4** — 颜色：primitive 色阶（neutral + accent 各 10 阶）；semantic 角色（bg / fg / border / action / focus）；light + dark 两个 mode；对比度脚本跑一遍。网站具体色值放 `themes/site/`
+- [x] **10/27 周二 · Day 4** — 颜色：primitive 色阶（neutral + accent 各 10 阶）；semantic 角色（bg / fg / border / action / focus）；light + dark 两个 mode；对比度脚本跑一遍。网站具体色值放 `themes/site/`
   产出：`color.json`、对比度报告 · 标准：所有前景/背景对达 WCAG AA；`foundations/` 里不出现任何品牌色值
 - [ ] **10/28 周三 · Day 5** — 组装上线：合并为 DTCG `tokens.json`；构建脚本生成 `tokens.css` + Tailwind theme；套到现网站只换值不改结构；README 写三层规则、命名规范、新增 token 五步；打 tag v0.1.0
   产出：网站带底座上线、README、v0.1.0 · 标准：网站 CSS 里 grep 不到裸 hex 和裸 px（1px 边框除外）；改一个 token 整站跟着变

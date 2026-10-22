@@ -1,0 +1,155 @@
+{
+  "$description": "Theme A · c1xxstudio.com. Fills the foundations' contracts: font families, the accent set, shadow hue, and one canvas override. Everything else is inherited.",
+  "theme": {
+    "font": {
+      "body": {
+        "$type": "fontFamily",
+        "$value": [
+          "Manrope",
+          "PingFang SC",
+          "Hiragino Sans GB",
+          "Microsoft YaHei",
+          "sans-serif"
+        ]
+      },
+      "display": {
+        "$type": "fontFamily",
+        "$value": [
+          "Newsreader",
+          "Georgia",
+          "serif"
+        ],
+        "$description": "Light italic only, for an intentional phrase — never a full paragraph."
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "DM Mono",
+          "ui-monospace",
+          "monospace"
+        ]
+      }
+    },
+    "accent": {
+      "$description": "The site's primary action is Ink, not a hue: dark pill buttons on paper (inverted in dark mode). Hue is reserved for signal and per-project scenes. Mode-aware because the ink/paper pair flips.",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "{neutral.950}"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{neutral.800}"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "{neutral.150}"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "{neutral.50}"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "#ed5138",
+          "$description": "Active navigation, scroll progress. 3.19:1 on canvas — passes non-text and large-text AA only; never body copy."
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "{neutral.50}"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{neutral.200}"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "{neutral.800}"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "{neutral.950}"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "#ed5138"
+        }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "{neutral.950}",
+        "$description": "Overrides semantic.focus.ring. DESIGN.md's #ff633c measures 2.9:1 on Paper and fails the 3:1 non-text minimum, so focus uses Ink (16.5:1); the orange stays as scene.highlight.orange. Dark mode: the semantic dark value (signal, 5.2:1) applies."
+      }
+    },
+    "shadow": {
+      "hue": {
+        "$type": "color",
+        "$value": "{neutral.950}"
+      }
+    }
+  },
+  "scene": {
+    "$description": "Per-project accents. Theme-level, not foundations: used for arrows, small type, pointer light, the next-project field. One accent per scene, low coverage.",
+    "syncline": {
+      "accent": {
+        "$type": "color",
+        "$value": "#59c8c2"
+      }
+    },
+    "blooming-sydney": {
+      "accent": {
+        "$type": "color",
+        "$value": "#d9568f"
+      }
+    },
+    "clario": {
+      "accent": {
+        "$type": "color",
+        "$value": "#df543c"
+      }
+    },
+    "highlight": {
+      "$description": "Editorial highlights used on single phrases.",
+      "acid": {
+        "$type": "color",
+        "$value": "#d7ff43"
+      },
+      "violet": {
+        "$type": "color",
+        "$value": "#7b62ff"
+      },
+      "orange": {
+        "$type": "color",
+        "$value": "#ff633c"
+      }
+    }
+  },
+  "aurora": {
+    "$description": "Ambient field over bg.canvas. Atmospheric only; must never reduce text contrast. Stays in the theme, outside the token contract.",
+    "peach": {
+      "$type": "color",
+      "$value": "rgb(238 185 170 / 0.25)"
+    },
+    "lilac": {
+      "$type": "color",
+      "$value": "rgb(203 190 229 / 0.25)"
+    },
+    "mint": {
+      "$type": "color",
+      "$value": "rgb(168 216 201 / 0.22)"
+    },
+    "sky": {
+      "$type": "color",
+      "$value": "rgb(170 207 223 / 0.20)"
+    },
+    "drift": {
+      "$type": "duration",
+      "$value": "16s",
+      "$description": "Replaces 14 / 15 / 17 s with one value."
+    }
+  }
+}

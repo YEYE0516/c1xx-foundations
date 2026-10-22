@@ -1,0 +1,103 @@
+{
+  "$description": "C1XX Foundations · colour. One shared warm-neutral ramp (primitive), semantic roles in light and dark, and an accent CONTRACT that each theme must fill. No brand colour appears here: the ramp is the only concrete value because both products already sit on the same warm grey axis (#f3f1ec→#121310 and #f7f4ef→#1f1f1f).",
+  "neutral": {
+    "$description": "Warm grey, 13 steps. Built from the values both products already used most: 100 = site Paper, 50 ≈ Syncline canvas, 200 = Soft, 300 = Rule, 600 = Muted, 900 = Syncline ink, 950 = site Ink.",
+    "0":   { "$type": "color", "$value": "#fbfaf7" },
+    "50":  { "$type": "color", "$value": "#f7f5f0" },
+    "100": { "$type": "color", "$value": "#f3f1ec" },
+    "150": { "$type": "color", "$value": "#ebe8e1" },
+    "200": { "$type": "color", "$value": "#d8d5cd" },
+    "300": { "$type": "color", "$value": "#cbc8bf" },
+    "400": { "$type": "color", "$value": "#aaa9a3" },
+    "500": { "$type": "color", "$value": "#8a8982" },
+    "600": { "$type": "color", "$value": "#62625d" },
+    "700": { "$type": "color", "$value": "#4c4d49" },
+    "800": { "$type": "color", "$value": "#343532" },
+    "900": { "$type": "color", "$value": "#1f1f1f" },
+    "950": { "$type": "color", "$value": "#121310" }
+  },
+  "accent": {
+    "$description": "CONTRACT. A theme must define these five. Foundations never assign values here.",
+    "base":   { "$type": "color", "$value": "{theme.accent.base}",   "$description": "The accent itself. Used for action.primary in product themes." },
+    "strong": { "$type": "color", "$value": "{theme.accent.strong}", "$description": "Darker step for hover/pressed and for text on light surfaces." },
+    "soft":   { "$type": "color", "$value": "{theme.accent.soft}",   "$description": "Tint at ~10–15% for selected backgrounds and highlights." },
+    "on":     { "$type": "color", "$value": "{theme.accent.on}",     "$description": "Text/icon colour placed on accent.base." },
+    "signal": { "$type": "color", "$value": "{theme.accent.signal}", "$description": "Attention: active nav, progress, error. May equal base." }
+  },
+  "semantic": {
+    "$description": "Roles components reference. Identical key set in light and dark; Figma imports these as two modes of one collection.",
+    "light": {
+      "bg": {
+        "canvas":  { "$type": "color", "$value": "{neutral.100}", "$description": "Page background. Themes may move this one step (Syncline → neutral.50)." },
+        "surface": { "$type": "color", "$value": "{neutral.50}",  "$description": "Cards, sheets, inputs." },
+        "raised":  { "$type": "color", "$value": "{neutral.0}",   "$description": "Functional raised surfaces only (controls, modals, embedded devices)." },
+        "sunken":  { "$type": "color", "$value": "{neutral.150}", "$description": "Wells, track backgrounds, quiet fills." },
+        "inverse": { "$type": "color", "$value": "{neutral.950}", "$description": "Dark blocks on a light page." }
+      },
+      "fg": {
+        "primary":    { "$type": "color", "$value": "{neutral.950}" },
+        "secondary":  { "$type": "color", "$value": "{neutral.600}", "$description": "Never lighter than this on canvas (DESIGN.md rule)." },
+        "muted":      { "$type": "color", "$value": "{neutral.500}", "$description": "Metadata ≥ 12px only; fails AA at 10px by design — use with meta tier sparingly." },
+        "on-inverse": { "$type": "color", "$value": "{neutral.50}" },
+        "on-accent":  { "$type": "color", "$value": "{accent.on}" }
+      },
+      "border": {
+        "subtle": { "$type": "color", "$value": "{neutral.300}", "$description": "Rules and dividers." },
+        "strong": { "$type": "color", "$value": "{neutral.950}", "$description": "Outlined controls." }
+      },
+      "action": {
+        "primary":       { "$type": "color", "$value": "{accent.base}" },
+        "primary-hover": { "$type": "color", "$value": "{accent.strong}" },
+        "primary-fg":    { "$type": "color", "$value": "{accent.on}" },
+        "selected-bg":   { "$type": "color", "$value": "{accent.soft}" },
+        "signal":        { "$type": "color", "$value": "{accent.signal}" }
+      },
+      "focus": {
+        "ring": { "$type": "color", "$value": "{accent.signal}", "$description": "2px ring, offset 2px. Themes may override to a dedicated focus colour." }
+      },
+      "shadow": {
+        "$description": "Alpha over the theme's shadow hue (default: ink). Referenced by shape.elevation.*",
+        "hue":    { "$type": "color", "$value": "{theme.shadow.hue}" },
+        "weak":   { "$type": "color", "$value": "rgb(from {shadow.hue} r g b / 0.06)" },
+        "base":   { "$type": "color", "$value": "rgb(from {shadow.hue} r g b / 0.10)" },
+        "strong": { "$type": "color", "$value": "rgb(from {shadow.hue} r g b / 0.18)" }
+      }
+    },
+    "dark": {
+      "bg": {
+        "canvas":  { "$type": "color", "$value": "{neutral.950}" },
+        "surface": { "$type": "color", "$value": "{neutral.900}" },
+        "raised":  { "$type": "color", "$value": "{neutral.800}" },
+        "sunken":  { "$type": "color", "$value": "{neutral.900}" },
+        "inverse": { "$type": "color", "$value": "{neutral.100}" }
+      },
+      "fg": {
+        "primary":    { "$type": "color", "$value": "{neutral.50}" },
+        "secondary":  { "$type": "color", "$value": "{neutral.400}" },
+        "muted":      { "$type": "color", "$value": "{neutral.500}" },
+        "on-inverse": { "$type": "color", "$value": "{neutral.950}" },
+        "on-accent":  { "$type": "color", "$value": "{accent.on}" }
+      },
+      "border": {
+        "subtle": { "$type": "color", "$value": "{neutral.800}" },
+        "strong": { "$type": "color", "$value": "{neutral.300}" }
+      },
+      "action": {
+        "primary":       { "$type": "color", "$value": "{accent.base}" },
+        "primary-hover": { "$type": "color", "$value": "{accent.strong}" },
+        "primary-fg":    { "$type": "color", "$value": "{accent.on}" },
+        "selected-bg":   { "$type": "color", "$value": "{accent.soft}" },
+        "signal":        { "$type": "color", "$value": "{accent.signal}" }
+      },
+      "focus": {
+        "ring": { "$type": "color", "$value": "{accent.signal}" }
+      },
+      "shadow": {
+        "hue":    { "$type": "color", "$value": "#000000" },
+        "weak":   { "$type": "color", "$value": "rgb(0 0 0 / 0.30)" },
+        "base":   { "$type": "color", "$value": "rgb(0 0 0 / 0.45)" },
+        "strong": { "$type": "color", "$value": "rgb(0 0 0 / 0.60)" }
+      }
+    }
+  }
+}
