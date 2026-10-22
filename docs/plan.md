@@ -14,9 +14,9 @@
 
 - [x] **10/21 周三 · Day 0** — 建仓库，立目录；本表存到 `docs/plan.md`
   产出：空仓库 · 标准：目录结构和 README 一致
-- [ ] **10/22 周四 · Day 1** — 盘点：脚本扫 Syncline 原型 CSS 和网站 CSS，抽出颜色、字号/行距、间距、圆角、阴影、动效时长，去重 + 计数 + 出处；做三个决定（留哪两套字体、近似色怎么合并、neutral 是否共用）
+- [x] **10/22 周四 · Day 1** — 盘点：脚本扫 Syncline 原型 CSS 和网站 CSS，抽出颜色、字号/行距、间距、圆角、阴影、动效时长，去重 + 计数 + 出处；做三个决定（留哪两套字体、近似色怎么合并、neutral 是否共用）
   产出：`docs/inventory.md` · 标准：每个值有次数和出处；三个决定写了理由；数字能直接当案例的 before
-- [ ] **10/23 周五 · Day 2** — 字阶与网格：用 baseline-to-layers 生成 4pt 基线字阶（行距互为整数倍，正文 16/24 上下各推 3–4 档）；三个断点的栏宽和页边距（每行 7–10 个单词反推）
+- [x] **10/23 周五 · Day 2** — 字阶与网格：用 baseline-to-layers 生成 4pt 基线字阶（行距互为整数倍，正文 16/24 上下各推 3–4 档）；三个断点的栏宽和页边距（每行 7–10 个单词反推）
   产出：`foundations/typography.json`、`layout.json` · 标准：每档 line-height 都是 4 的倍数；栏宽给出 `max-width` 的 ch 值
 - [ ] **10/26 周一 · Day 3** — 间距 / 圆角 / 层级 / 动效：间距刻度数字命名约 10 档；圆角 3 档 + full；阴影 2–3 档；duration 三档、easing 三条（enter / exit / emphasis）、reduced-motion 规则
   产出：`spacing.json`、`shape.json`、`motion.json` · 标准：间距全是 4 的倍数；motion 的值能被 GSAP 直接引用

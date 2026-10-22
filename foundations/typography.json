@@ -1,0 +1,69 @@
+{
+  "$description": "C1XX Foundations · typography. Brand-agnostic: font ROLES only, no family names (themes fill those in). Baseline unit 4px; body row 24px. Every lineHeight is a multiple of 4; text tiers up to lead are multiples of 8 so any two tiers realign within one body row.",
+  "font": {
+    "family": {
+      "body": { "$type": "fontFamily", "$value": "{theme.font.body}", "$description": "UI and running text. Theme supplies the family." },
+      "display": { "$type": "fontFamily", "$value": "{theme.font.display}", "$description": "Editorial display and intentional phrases." },
+      "mono": { "$type": "fontFamily", "$value": "{theme.font.mono}", "$description": "Labels, metadata, indexes. A theme may alias this to body." }
+    },
+    "weight": {
+      "light": { "$type": "fontWeight", "$value": 300 },
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium": { "$type": "fontWeight", "$value": 500 },
+      "semibold": { "$type": "fontWeight", "$value": 600 },
+      "bold": { "$type": "fontWeight", "$value": 700 }
+    },
+    "tracking": {
+      "display": { "$type": "dimension", "$value": "-0.04em", "$description": "Large display, light weight." },
+      "tight": { "$type": "dimension", "$value": "-0.02em" },
+      "normal": { "$type": "dimension", "$value": "0" },
+      "label": { "$type": "dimension", "$value": "0.12em", "$description": "Uppercase mono labels and metadata." },
+      "wide": { "$type": "dimension", "$value": "0.18em" }
+    }
+  },
+  "baseline": {
+    "unit": { "$type": "dimension", "$value": "4px", "$description": "Smallest vertical unit. All line-heights are multiples of this." },
+    "row": { "$type": "dimension", "$value": "24px", "$description": "L — the body row. Block heights and section spacing are multiples of this." }
+  },
+  "text": {
+    "$description": "Fixed across breakpoints. Each tier: fontSize / lineHeight, lineHeight ∈ {12, 16, 24, 28}.",
+    "meta": { "$type": "typography", "$value": { "fontSize": "10px", "lineHeight": "12px", "fontFamily": "{font.family.mono}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.tracking.label}" }, "$description": "2 lines = 1 body row. Floor of the scale: replaces 7/8/9px." },
+    "sm": { "$type": "typography", "$value": { "fontSize": "12px", "lineHeight": "16px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.tracking.normal}" }, "$description": "Caption, supporting body. As a mono uppercase label use tracking.label." },
+    "body": { "$type": "typography", "$value": { "fontSize": "14px", "lineHeight": "24px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.tracking.normal}" }, "$description": "Default running text (1.71). Sits on the body row." },
+    "body-lg": { "$type": "typography", "$value": { "fontSize": "16px", "lineHeight": "24px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.tracking.normal}" }, "$description": "Comfortable reading / mobile product body (1.5)." },
+    "lead": { "$type": "typography", "$value": { "fontSize": "18px", "lineHeight": "28px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.tracking.tight}" }, "$description": "Intro paragraphs (1.56). 28 = row + unit; a lead block of 6 lines = 7 rows." }
+  },
+  "heading": {
+    "$description": "Fixed across breakpoints. lineHeight = fontSize + 4.",
+    "h4": { "$type": "typography", "$value": { "fontSize": "20px", "lineHeight": "24px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.medium}", "letterSpacing": "{font.tracking.tight}" }, "$description": "1 line = 1 body row." },
+    "h3": { "$type": "typography", "$value": { "fontSize": "24px", "lineHeight": "28px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.medium}", "letterSpacing": "{font.tracking.tight}" } },
+    "h2": { "$type": "typography", "$value": { "fontSize": "32px", "lineHeight": "36px", "fontFamily": "{font.family.body}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" }, "$description": "Light weight starts here." }
+  },
+  "display": {
+    "$description": "Per breakpoint (desktop / tablet / mobile), fixed values instead of clamp() so line-heights stay on the 4px grid. Editorial leading < 1; blocks return to the 24px row through margin tokens.",
+    "1": {
+      "$description": "Page display. Ratio 0.8.",
+      "desktop": { "$type": "typography", "$value": { "fontSize": "160px", "lineHeight": "128px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "tablet": { "$type": "typography", "$value": { "fontSize": "112px", "lineHeight": "92px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "mobile": { "$type": "typography", "$value": { "fontSize": "80px", "lineHeight": "64px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } }
+    },
+    "2": {
+      "$description": "Hero display. Ratio ≈ 0.92.",
+      "desktop": { "$type": "typography", "$value": { "fontSize": "144px", "lineHeight": "132px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "tablet": { "$type": "typography", "$value": { "fontSize": "96px", "lineHeight": "88px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "mobile": { "$type": "typography", "$value": { "fontSize": "60px", "lineHeight": "56px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } }
+    },
+    "3": {
+      "$description": "Section display. Ratio ≈ 0.9.",
+      "desktop": { "$type": "typography", "$value": { "fontSize": "88px", "lineHeight": "80px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "tablet": { "$type": "typography", "$value": { "fontSize": "64px", "lineHeight": "56px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "mobile": { "$type": "typography", "$value": { "fontSize": "52px", "lineHeight": "48px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } }
+    },
+    "4": {
+      "$description": "Project title / statement. Ratio 0.93–1.0.",
+      "desktop": { "$type": "typography", "$value": { "fontSize": "60px", "lineHeight": "56px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "tablet": { "$type": "typography", "$value": { "fontSize": "48px", "lineHeight": "44px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } },
+      "mobile": { "$type": "typography", "$value": { "fontSize": "40px", "lineHeight": "40px", "fontFamily": "{font.family.display}", "fontWeight": "{font.weight.light}", "letterSpacing": "{font.tracking.display}" } }
+    }
+  }
+}
