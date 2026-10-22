@@ -36,8 +36,12 @@ A theme may override a semantic value. It may never edit `foundations/`.
 | `foundations/shape.json` | radius 4 / 8 / 16 / 24 / 32 / full, hairline, `elevation.1–3` (geometry only) | [03](docs/03-spacing-shape-motion.md) |
 | `foundations/motion.json` | durations 120 / 200 / 320 / 600, easings, stagger, reduced-motion, GSAP seconds | [03](docs/03-spacing-shape-motion.md) |
 | `foundations/color.json` | 13-step warm neutral, accent contract, semantic roles ×2 modes | [04](docs/04-color.md) · [contrast](docs/04-contrast.md) |
+| `foundations/icons.json` + `icons/` | the UI icon system: 94 Lucide glyphs normalised to the grid (24 box, 20 live area, stroke 2, currentColor), 7 categories, 3 sizes, colour by role | [07](docs/07-icons.md) |
 | `themes/site/theme.json` | Manrope / Newsreader / DM Mono, Ink as action, signal, scene accents, aurora | |
+| `themes/syncline/theme.json` + `pictograms.json` | Inter / New York, Cloud accent, six energy forms, dance pictograms as shape tables with form colour slots | [05](docs/05-syncline-theme.md) · [07](docs/07-icons.md) |
 | `build/build.py` | JSON → `dist/<theme>/tokens.css` + `tokens.flat.json` | |
+| `build/icons.py` | vendor + build the icon set → `dist/icons/` (sprite, json, css, manifest) | |
+| `build/pictograms.py` | `pictograms.json` → `dist/syncline/pictograms/` (svg, sprite, js) | |
 | `build/inventory.py` | counts every hardcoded design value in a stylesheet / TSX (the before and after) | |
 | `build/contrast.py` | WCAG report for a theme | |
 | `build/migrate-site.py` | the one-shot rewrite of the site's `styles.css` onto tokens | |
@@ -80,7 +84,7 @@ Tokens follow the [W3C Design Tokens (DTCG)](https://www.designtokens.org/) form
 
 ## Figma
 
-[C1XX Foundations](https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si) — three collections (Primitives · Semantic with Light/Dark modes · Theme · site), 28 text styles, 3 effect styles, every variable carrying its CSS name as code syntax. Built from the JSON through the Figma MCP, not by hand; the JSON stays the source of truth.
+[C1XX Foundations](https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si) — collections Primitives · Semantic (Light / Dark) · Product (site / syncline) · Energy (6 forms) · Syncline · forms · Site · scene, 28 text styles, 3 effect styles, 12 Syncline components incl. Icon (94) / Icon button / Pictogram, every variable carrying its CSS name as code syntax. Built from the JSON through the Figma MCP, not by hand; the JSON stays the source of truth.
 
 ## Status
 
@@ -88,4 +92,4 @@ See [docs/plan.md](docs/plan.md).
 
 ## Licence
 
-MIT
+MIT. Icon glyphs in `foundations/icons/` are from [Lucide](https://lucide.dev) (ISC) — see `foundations/icons/LICENSE`.
