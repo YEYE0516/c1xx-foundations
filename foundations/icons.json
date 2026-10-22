@@ -1,0 +1,72 @@
+{
+  "$description": "C1XX Foundations · UI icon system. Brand-agnostic, so it sits in foundations and both themes share it. Glyphs are vendored from Lucide (ISC licence, see foundations/icons/LICENSE) and normalised: 24 grid, 20 live area, stroke 2, round caps and joins, currentColor. Themes add nothing here — colour comes from fg/action roles at the point of use; Syncline's dance pictograms are a separate, expressive tier in themes/syncline/pictograms.json.",
+  "grid": {
+    "size": 24,
+    "liveArea": 20,
+    "padding": 2,
+    "stroke": "{border.emphasis}",
+    "cornerRadius": 2,
+    "terminals": "round",
+    "keylines": {
+      "circle": 20,
+      "square": 18,
+      "landscape": "20 × 16",
+      "portrait": "16 × 20"
+    },
+    "$description": "Glyphs are drawn inside the 20 px live area; the 2 px padding keeps optical weight even at 16 px. Circular glyphs fill the 20 keyline, square ones the 18 keyline so they read the same size."
+  },
+  "sizes": {
+    "sm": { "$type": "dimension", "$value": "{size.icon-sm}", "$description": "16 · inline with sm/body text, chips" },
+    "md": { "$type": "dimension", "$value": "{size.icon-md}", "$description": "20 · default. buttons, inputs, list rows" },
+    "lg": { "$type": "dimension", "$value": "{size.icon-lg}", "$description": "24 · nav bars, empty states, icon buttons" },
+    "$description": "Three sizes only. Stroke stays 2 at every size (Lucide scales the whole glyph, so stroke is 1.33 at sm and 2 at lg visually — accepted; never set a different strokeWidth)."
+  },
+  "color": {
+    "$description": "Icons never carry their own colour. They inherit from the text they sit with (currentColor) or take exactly one of these roles.",
+    "default": "{color.fg.primary}",
+    "secondary": "{color.fg.secondary}",
+    "muted": "{color.fg.muted}",
+    "on-accent": "{color.fg.on-accent}",
+    "accent": "{color.fg.accent}",
+    "signal": "{color.action.signal}",
+    "disabled": "{color.action.disabled-fg}"
+  },
+  "touch": {
+    "$description": "An icon alone is never a target. Icon buttons are size.control-md 40 / control-lg 48; hit area never below size.touch-min 44 (extend with negative margin at md).",
+    "min": "{size.touch-min}"
+  },
+  "naming": {
+    "$description": "lucide name, kebab-case, verb-or-noun, no size or colour in the name. Direction is literal (chevron-left), state is a suffix (bell-off, eye-off, lock-open). Figma: Icon / Name=<name>. Code: <Icon name=\"...\" size=\"md\" /> or lucide-react's PascalCase export.",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+  },
+  "categories": {
+    "navigation": {
+      "$description": "Move around the app",
+      "icons": ["chevron-left", "chevron-right", "chevron-up", "chevron-down", "arrow-left", "arrow-right", "arrow-up-right", "menu", "x", "ellipsis", "ellipsis-vertical", "house", "search", "settings", "sliders-horizontal", "list-filter", "expand", "shrink", "layers", "grid-2x2"]
+    },
+    "action": {
+      "$description": "Do something to an object",
+      "icons": ["plus", "minus", "check", "save", "pencil", "trash-2", "share", "download", "upload", "copy", "rotate-ccw", "refresh-cw", "external-link", "link", "log-out", "qr-code", "scan", "bookmark"]
+    },
+    "status": {
+      "$description": "System tells you something",
+      "icons": ["info", "circle-alert", "triangle-alert", "circle-check", "circle-x", "circle-help", "bell", "bell-off", "eye", "eye-off", "lock", "lock-open", "wifi", "wifi-off", "loader-circle", "globe"]
+    },
+    "people": {
+      "$description": "Users, groups, reactions",
+      "icons": ["user-round", "users-round", "user-round-plus", "heart", "star", "message-circle", "hand", "smile", "thumbs-up"]
+    },
+    "media": {
+      "$description": "Playback and capture",
+      "icons": ["play", "pause", "square", "skip-back", "skip-forward", "volume-2", "volume-x", "mic", "mic-off", "camera", "video", "image", "music", "headphones", "audio-lines"]
+    },
+    "time-place": {
+      "$description": "When and where",
+      "icons": ["clock", "calendar", "timer", "map-pin", "compass"]
+    },
+    "energy": {
+      "$description": "Movement, mood and intensity — the Syncline vocabulary, kept generic enough for the site",
+      "icons": ["zap", "sparkles", "activity", "flame", "moon", "sun", "footprints", "orbit", "gauge", "waves", "wind"]
+    }
+  }
+}
