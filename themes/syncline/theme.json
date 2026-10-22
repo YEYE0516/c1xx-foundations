@@ -394,5 +394,18 @@
       "$type": "color",
       "$value": "rgb(201 121 85 / 0.13)"
     }
+  },
+  "scene": {
+    "$description": "Prototype scene colours outside the semantic contract: the night-sky surface the live/preview scene sits on (the same navy as the shadow hue), and the avatar's blush. Theme-level literals, emitted as --scene-*.",
+    "night": {
+      "$type": "color",
+      "$value": "{theme.shadow.hue}",
+      "$description": "Dark scene surface (preview, summary panel, active pictogram tile). Not bg.inverse — it is navy on purpose."
+    },
+    "blush": {
+      "$type": "color",
+      "$value": "#f5a7a7",
+      "$description": "Avatar cheeks."
+    }
   }
 }

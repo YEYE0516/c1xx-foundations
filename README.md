@@ -68,6 +68,11 @@ A theme may override a semantic value. It may never edit `foundations/`.
 4. `python3 -I build/build.py site` and check `dist/site/tokens.css`. For colours also run `build/contrast.py themes/site/theme.json`.
 5. Bump the version in the tag; note the change in the commit.
 
+## Consumers
+
+- **c1xxstudio.com** — `src/tokens.css` is `dist/site/tokens.css`; `styles.css` migrated by `build/migrate-site.py`.
+- **Syncline prototype** — `Portfolio_Website/syncline/`: Tailwind theme replaced wholesale by tokens (`tailwind.config.js`), pictograms from `pictograms.json`, `data-energy` scopes for the six forms. See [08](docs/08-syncline-prototype.md).
+
 ## Using the output
 
 ```css

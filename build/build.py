@@ -30,6 +30,8 @@ def lookup(ref, mode):
     cands = []
     if ref.startswith("theme.accent."):
         cands.append(ref.replace("theme.accent.", f"theme.accent.{mode}."))
+    if ref == "theme.shadow.hue":
+        cands.append("theme.shadow.hue")
     if ref.startswith("color."):
         ref = ref[len("color."):]
     if ref.startswith(("shadow.", "border.")):
@@ -95,9 +97,16 @@ def bezier(v):
 root, dark, bp = [], [], {"wide": [], "tablet": [], "mobile": []}
 flat_out = {}
 
-def emit(target, name, value):
+HEX6 = re.compile(r"^#([0-9a-fA-F]{6})$")
+
+def emit(target, name, value, rgb=False):
     target.append(f"  {name}: {value};")
     flat_out[name] = value
+    m = HEX6.match(str(value).strip())
+    if rgb and m:
+        h = m.group(1); trip = " ".join(str(int(h[i:i + 2], 16)) for i in (0, 2, 4))
+        target.append(f"  {name}-rgb: {trip};")
+        flat_out[name + "-rgb"] = trip
 
 for path, tok in flat.items():
     typ, val = tok["type"], tok["value"]
@@ -156,7 +165,7 @@ for path, tok in flat.items():
         continue
     if typ == "dimension" and (path.startswith(("space.", "rhythm.", "radius.")) and not path.endswith("full")) and str(r).endswith("px"):
         pxv = float(str(r)[:-2]); r = "0" if pxv == 0 else f"{pxv/16:g}rem"
-    emit(target, name, str(r))
+    emit(target, name, str(r), rgb=(typ == "color"))
 
 # theme focus override (light only; dark keeps semantic)
 if "theme.focus.ring" in flat:
@@ -166,7 +175,7 @@ if "theme.focus.ring" in flat:
 # theme canvas override (light only)
 if "theme.canvas" in flat:
     cv = resolve(flat["theme.canvas"]["value"], "light")
-    root.append(f"  --bg-canvas: {cv};"); flat_out["--bg-canvas"] = cv
+    emit(root, "--bg-canvas", cv, rgb=True)
 
 # energy forms → data-attribute scopes that re-point the accent-derived roles
 energy_blocks = []
@@ -174,18 +183,26 @@ forms = sorted({p.split(".")[1] for p in flat if p.startswith("energy.") and p.c
 for form in forms:
     for mode, sel in (("light", f'[data-energy="{form}"]'), ("dark", f'[data-theme="dark"][data-energy="{form}"]')):
         g = lambda k: resolve(flat[f"energy.{form}.{mode}.{k}"]["value"], mode)
-        lines = [f"  --accent-base: {g('base')};", f"  --accent-strong: {g('strong')};", f"  --accent-soft: {g('soft')};", f"  --accent-on: {g('on')};",
-                 f"  --action-primary: {g('base')};", f"  --action-primary-hover: {g('strong')};", f"  --action-primary-fg: {g('on')};",
-                 f"  --action-selected-bg: {g('soft')};", f"  --fg-on-accent: {g('on')};", f"  --fg-accent: {g('strong')};"]
+        lines = []
+        def eline(n, v):
+            lines.append(f"  {n}: {v};")
+            m = HEX6.match(v)
+            if m:
+                h = m.group(1); lines.append(f"  {n}-rgb: {' '.join(str(int(h[i:i + 2], 16)) for i in (0, 2, 4))};")
+        for n, k in (("--accent-base", "base"), ("--accent-strong", "strong"), ("--accent-soft", "soft"), ("--accent-on", "on"),
+                     ("--action-primary", "base"), ("--action-primary-hover", "strong"), ("--action-primary-fg", "on"),
+                     ("--action-selected-bg", "soft"), ("--fg-on-accent", "on"), ("--fg-accent", "strong")):
+            eline(n, g(k))
         energy_blocks += [f"{sel} {{", *lines, "}", ""]
 if forms:
     # default accent exposed under the same names (so components can use --accent-* without a data attribute)
     for mode, target in (("light", root), ("dark", dark)):
         g = lambda k: resolve(flat[f"theme.accent.{mode}.{k}"]["value"], mode)
-        target += [f"  --accent-base: {g('base')};", f"  --accent-strong: {g('strong')};", f"  --accent-soft: {g('soft')};", f"  --accent-on: {g('on')};", f"  --fg-accent: {g('strong')};"]
+        for n, k in (("--accent-base", "base"), ("--accent-strong", "strong"), ("--accent-soft", "soft"), ("--accent-on", "on"), ("--fg-accent", "strong")):
+            emit(target, n, g(k), rgb=True)
     # fixed palette: every form's base colour side by side (pictograms, avatar rings, form pickers)
     for form in forms:
-        emit(root, f"--form-{form}", resolve(flat[f"energy.{form}.light.base"]["value"], "light"))
+        emit(root, f"--form-{form}", resolve(flat[f"energy.{form}.light.base"]["value"], "light"), rgb=True)
 
 # remove duplicates keeping last (override order: foundations then theme focus)
 def dedupe(lines):
