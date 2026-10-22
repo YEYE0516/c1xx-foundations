@@ -21,7 +21,7 @@
 
 | 组件 | 矩阵 | 属性 |
 | --- | --- | --- |
-| Button | Style（Primary / Secondary / Ghost）× State（Default / Hover / Pressed / Disabled）× Size（md / lg）= 24 | Label（文字）、Show icon（布尔，AR 按钮用） |
+| Button | Style（Primary / Secondary / Ghost）× State（Default / Hover / Pressed / Disabled）× Size（md / lg）= 24 | Label（文字）、Show icon（布尔，AR 按钮用）、Icon（实例替换，接 `Icon` 组件，见 07） |
 | Input | State（Default / Focus / Filled / Disabled）× Size（md / lg）= 8 | Value（文字）。Filled 靠 fg/primary 区分占位的 fg/muted |
 | Chip | Selected（Off / On）× State（Default / Hover / Disabled）= 6 | Label。On = accent soft 填充 + accent strong 描边 + accent 圆点 |
 | Card | Style（Flat / Raised / Selected）= 3 | Eyebrow / Title / Body（文字）、Show media（布尔）。Raised 用 elevation/2，在 Syncline 下是海军蓝阴影；media 槽高度 = rhythm/4 |

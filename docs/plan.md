@@ -39,7 +39,9 @@
   产出：Figma 组件库前半 · 标准：任何组件选中后属性面板里没有裸数值
 - [x] **11/3 周二 · Day 3** — Figma 组件 II：Slider、Page control、Bottom sheet、Toast、Avatar（6 个 variant）。（Energy 6 modes + Product collection 已于 Day 1 建好）
   产出：Figma 组件库全部 + modes · 标准：切一次 mode 整页变色，avatar 跟着换
-- [ ] **11/4 周三 · Day 4** — 原型换 token：Tailwind config 指向生成的 token；`hig-refinements.css` 里的硬编码全部换成 variables；三套字体收成两套
+- [x] **11/3 周二 · Day 3½ · icon 整理**（插入步骤）— 盘点原型的三类图形：7 个 Lucide icon 定三条规则（三档尺寸、描边恒 2、颜色走 fg 角色）进 Figma `Icon` 组件并接到 Button 的 INSTANCE_SWAP；8 个 JS 现画的舞种 pictogram 抽成 `pictograms.json` + 构建脚本，颜色槽绑 energy form（新增 `Syncline · forms` collection 和 `--form-*`）；13 张插画只登记
+  产出：`docs/07-syncline-icons.md`、`themes/syncline/pictograms.json`、`dist/syncline/pictograms/`、Figma 页 `05 · Icons · Syncline` · 标准：pictogram 里 0 个裸 hex；Figma 和代码的 pictogram 同一份数据生成
+- [ ] **11/4 周三 · Day 4** — 原型换 token：Tailwind config 指向生成的 token；`hig-refinements.css` 里的硬编码全部换成 variables；三套字体收成两套；`icon-refinements.js` 改用生成的 pictogram，icon 尺寸/线宽按 Day 3½ 的规则
   产出：原型新版本上线 · 标准：原型 CSS 里 grep 不到裸 hex；盘点脚本再跑一次，数字写进案例
 - [ ] **11/5 周四 · Day 5** — 校验 + 收尾：Figma 和代码逐个组件对状态；Code Connect 把 Button 挂到 React 组件（可跳过）；Figma 文件设为公开
   产出：校验清单、公开链接 · 标准：每个组件每个状态两边一致；before / after 两组数字齐

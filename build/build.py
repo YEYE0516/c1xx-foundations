@@ -183,6 +183,9 @@ if forms:
     for mode, target in (("light", root), ("dark", dark)):
         g = lambda k: resolve(flat[f"theme.accent.{mode}.{k}"]["value"], mode)
         target += [f"  --accent-base: {g('base')};", f"  --accent-strong: {g('strong')};", f"  --accent-soft: {g('soft')};", f"  --accent-on: {g('on')};", f"  --fg-accent: {g('strong')};"]
+    # fixed palette: every form's base colour side by side (pictograms, avatar rings, form pickers)
+    for form in forms:
+        emit(root, f"--form-{form}", resolve(flat[f"energy.{form}.light.base"]["value"], "light"))
 
 # remove duplicates keeping last (override order: foundations then theme focus)
 def dedupe(lines):
