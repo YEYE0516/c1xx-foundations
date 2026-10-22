@@ -37,7 +37,7 @@
   产出：`themes/syncline/*.json` · 标准：构建脚本能用同一套 foundations 生出网站和 Syncline 两份 `tokens.css`
 - [x] **11/2 周一 · Day 2** — Figma 组件 I：Button（primary / secondary / ghost / AR / icon × 状态）、Input、Chip、Card；每个 variant 绑 variables，auto layout 用 spacing variables
   产出：Figma 组件库前半 · 标准：任何组件选中后属性面板里没有裸数值
-- [ ] **11/3 周二 · Day 3** — Figma 组件 II：Slider、Page control、Bottom sheet、Toast、Avatar（6 个 variant）。（Energy 6 modes + Product collection 已于 Day 1 建好）
+- [x] **11/3 周二 · Day 3** — Figma 组件 II：Slider、Page control、Bottom sheet、Toast、Avatar（6 个 variant）。（Energy 6 modes + Product collection 已于 Day 1 建好）
   产出：Figma 组件库全部 + modes · 标准：切一次 mode 整页变色，avatar 跟着换
 - [ ] **11/4 周三 · Day 4** — 原型换 token：Tailwind config 指向生成的 token；`hig-refinements.css` 里的硬编码全部换成 variables；三套字体收成两套
   产出：原型新版本上线 · 标准：原型 CSS 里 grep 不到裸 hex；盘点脚本再跑一次，数字写进案例

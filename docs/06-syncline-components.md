@@ -28,6 +28,18 @@
 
 Button 下方一排：同一个 Primary/lg 实例放进七个容器，只有容器的 Energy mode 不同——演示用。
 
+## Day 3 组件
+
+| 组件 | 矩阵 | 说明 |
+| --- | --- | --- |
+| Slider | State（Default / Disabled）= 2 | 轨道 bg/sunken，填充 action/primary，24px 滑块 + elevation/1。代码里滑块命中区要补到 size/touch-min 44 |
+| Page control | Active（1–6）= 6 | 激活点拉长到 space/5 并取 action/primary，其余 space/2 取 border/control |
+| Toast | Tone（Neutral / Accent / Signal）= 3 | bg/inverse / action/primary / action/signal，elevation/2，radius/3。Message 文字属性 |
+| Avatar | Form（6）× Size（sm 48 / lg 96）= 12 | 每个 variant 自带 Energy mode，环和占位色自动是该 form 的 accent。PNG 待填入 image 槽（代理网络不允许上传 mcp.figma.com，图片已发给你手动放） |
+| Bottom sheet | 单组件 | bg/raised，顶部 radius/4，elevation/3，把手 40 × 4；内容槽 rhythm/4；主操作是 Button 的实例（lg，全宽）——组件复用组件 |
+
+共 9 个组件 / 64 个 variant。
+
 ## 新增的 Semantic 角色
 
 - `action/disabled-bg`、`action/disabled-fg`
