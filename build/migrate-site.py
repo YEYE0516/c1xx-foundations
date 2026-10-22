@@ -181,7 +181,8 @@ def tier_vars(t):
     return (f"var(--{t}-size)", f"var(--{t}-lh)")
 
 # ---------- rule-level pass ----------
-def process_decls(block):
+SEL_TIER = {}
+def process_decls(block, selector="", nested=False):
     """block = declarations of one rule (no braces). Returns rewritten declarations."""
     decls = [d for d in block.split(";") if d.strip()]
     out = []
@@ -195,6 +196,12 @@ def process_decls(block):
             if m: tier = tier_for_px(float(m.group(1)))
             m = re.match(r"clamp\(\s*[\d.]+px\s*,\s*[\d.]+vw\s*,\s*([\d.]+)px\s*\)", val)
             if m: tier = tier_for_clamp(float(m.group(1)))
+    key = selector.strip()
+    if nested and key in SEL_TIER and tier and tier.startswith(("display", "h2")):
+        tier = SEL_TIER[key]  # tiers are already responsive: keep the base rule's tier
+        report["nested override→same tier"] += 1
+    elif tier and not nested:
+        SEL_TIER[key] = tier
     for d in decls:
         if ":" not in d: out.append(d); continue
         prop, val = d.split(":", 1); prop, val = prop.strip(), val.strip()
@@ -255,11 +262,12 @@ def process_decls(block):
     return ";".join(out) + (";" if block.rstrip().endswith(";") else "")
 
 # walk braces: process innermost declaration blocks only
-def walk(css):
+def walk(css, nested=False):
     out, i, n = [], 0, len(css)
     while i < n:
         j = css.find("{", i)
         if j < 0: out.append(css[i:]); break
+        selector = css[i:j].strip().split("\n")[-1]
         out.append(css[i:j+1]); i = j + 1
         # find matching close, accounting for nesting
         depth, k = 1, i
@@ -269,9 +277,9 @@ def walk(css):
             k += 1
         inner = css[i:k-1]
         if "{" in inner:
-            out.append(walk(inner))
+            out.append(walk(inner, nested=True))
         else:
-            out.append(process_decls(inner))
+            out.append(process_decls(inner, selector, nested))
         out.append("}"); i = k
     return "".join(out)
 

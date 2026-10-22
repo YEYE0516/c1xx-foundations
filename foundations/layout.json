@@ -1,54 +1,165 @@
 {
   "$description": "C1XX Foundations · layout. Breakpoints, gutters, containers, column grid, reading measure and vertical rhythm. All vertical values are multiples of baseline.row (24px) per Müller-Brockmann's grid method.",
   "breakpoint": {
-    "mobile": { "$type": "dimension", "$value": "600px", "$description": "≤ 600: single column." },
-    "tablet": { "$type": "dimension", "$value": "900px", "$description": "601–900: thirds collapse to halves." },
-    "desktop": { "$type": "dimension", "$value": "1280px", "$description": "> 900 is desktop; ≥ 1280 is where the container caps." }
+    "mobile": {
+      "$type": "dimension",
+      "$value": "600px",
+      "$description": "≤ 600: single column."
+    },
+    "tablet": {
+      "$type": "dimension",
+      "$value": "900px",
+      "$description": "601–900: thirds collapse to halves."
+    },
+    "desktop": {
+      "$type": "dimension",
+      "$value": "1280px",
+      "$description": "> 900 is desktop; ≥ 1280 is where the container caps."
+    },
+    "wide": {
+      "$type": "dimension",
+      "$value": "1680px",
+      "$description": "≥ 1680: display tiers step up to their largest size."
+    }
   },
   "gutter": {
     "$description": "Page edge padding. Background always reaches the viewport edge; gutters belong to the content.",
-    "mobile": { "$type": "dimension", "$value": "16px" },
-    "tablet": { "$type": "dimension", "$value": "24px" },
-    "desktop": { "$type": "dimension", "$value": "clamp(24px, 4vw, 72px)", "$description": "Fluid between two scale steps (24 and 72 = 1 and 3 rows)." }
+    "mobile": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "tablet": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "desktop": {
+      "$type": "dimension",
+      "$value": "clamp(24px, 4vw, 72px)",
+      "$description": "Fluid between two scale steps (24 and 72 = 1 and 3 rows)."
+    }
   },
   "container": {
-    "max": { "$type": "dimension", "$value": "1440px", "$description": "Content never wider than this; project scenes and media may go full-bleed." },
-    "reading": { "$type": "dimension", "$value": "{measure.body}", "$description": "Default width for running text." }
+    "max": {
+      "$type": "dimension",
+      "$value": "1440px",
+      "$description": "Content never wider than this; project scenes and media may go full-bleed."
+    },
+    "reading": {
+      "$type": "dimension",
+      "$value": "{measure.body}",
+      "$description": "Default width for running text."
+    }
   },
   "grid": {
-    "columns": { "$type": "number", "$value": 12, "$description": "Divisible by 2, 3, 4, 6 → thirds, halves, quarters without a second grid." },
-    "gap": {
-      "mobile": { "$type": "dimension", "$value": "16px" },
-      "tablet": { "$type": "dimension", "$value": "24px" },
-      "desktop": { "$type": "dimension", "$value": "24px", "$description": "= baseline.row, so column gap and row gap share one unit." }
+    "columns": {
+      "$type": "number",
+      "$value": 12,
+      "$description": "Divisible by 2, 3, 4, 6 → thirds, halves, quarters without a second grid."
     },
-    "row-gap": { "$type": "dimension", "$value": "24px", "$description": "g × L with g = 1: one empty body row between fields." }
+    "gap": {
+      "mobile": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "tablet": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "desktop": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "= baseline.row, so column gap and row gap share one unit."
+      }
+    },
+    "row-gap": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "g × L with g = 1: one empty body row between fields."
+    }
   },
   "measure": {
     "$description": "Line length in ch of the text tier in use. 7–10 words / 45–75 characters per line.",
-    "narrow": { "$type": "dimension", "$value": "36ch", "$description": "Captions, side notes, the lower-right project info block (≈ 330–430px at body size)." },
-    "body": { "$type": "dimension", "$value": "64ch", "$description": "Running text. ≈ 560px at 16px, 480px at 14px." },
-    "wide": { "$type": "dimension", "$value": "80ch", "$description": "Lead paragraphs and statements only; never body copy." }
+    "narrow": {
+      "$type": "dimension",
+      "$value": "36ch",
+      "$description": "Captions, side notes, the lower-right project info block (≈ 330–430px at body size)."
+    },
+    "body": {
+      "$type": "dimension",
+      "$value": "64ch",
+      "$description": "Running text. ≈ 560px at 16px, 480px at 14px."
+    },
+    "wide": {
+      "$type": "dimension",
+      "$value": "80ch",
+      "$description": "Lead paragraphs and statements only; never body copy."
+    }
   },
   "field": {
     "$description": "Grid field (unit cell) heights = r × L. Image, card and colour-block heights come from these so their edges land on text rows.",
-    "rows-sm": { "$type": "number", "$value": 4, "$description": "96px" },
-    "rows-md": { "$type": "number", "$value": 7, "$description": "168px" },
-    "rows-lg": { "$type": "number", "$value": 10, "$description": "240px" },
-    "span-formula": { "$type": "string", "$value": "m × r × L + (m − 1) × L", "$description": "Height of a block spanning m fields with one empty row between fields." }
+    "rows-sm": {
+      "$type": "number",
+      "$value": 4,
+      "$description": "96px"
+    },
+    "rows-md": {
+      "$type": "number",
+      "$value": 7,
+      "$description": "168px"
+    },
+    "rows-lg": {
+      "$type": "number",
+      "$value": 10,
+      "$description": "240px"
+    },
+    "span-formula": {
+      "$type": "string",
+      "$value": "m × r × L + (m − 1) × L",
+      "$description": "Height of a block spanning m fields with one empty row between fields."
+    }
   },
   "rhythm": {
     "$description": "Vertical spacing between blocks, in whole body rows. Component-level spacing lives in spacing.json; this is the layout level.",
-    "1": { "$type": "dimension", "$value": "24px", "$description": "1 row — paragraph to paragraph." },
-    "2": { "$type": "dimension", "$value": "48px", "$description": "2 rows — heading to body, card to card." },
-    "3": { "$type": "dimension", "$value": "72px", "$description": "3 rows — sub-section." },
-    "4": { "$type": "dimension", "$value": "96px", "$description": "4 rows — section." },
-    "6": { "$type": "dimension", "$value": "144px", "$description": "6 rows — major section / scene boundary." },
-    "8": { "$type": "dimension", "$value": "192px", "$description": "8 rows — page-level breathing room (desktop only)." }
+    "1": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "1 row — paragraph to paragraph."
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "2 rows — heading to body, card to card."
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "72px",
+      "$description": "3 rows — sub-section."
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "4 rows — section."
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "144px",
+      "$description": "6 rows — major section / scene boundary."
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "192px",
+      "$description": "8 rows — page-level breathing room (desktop only)."
+    }
   },
   "margin": {
     "$description": "Page margins are never four-equal: content sits high, bottom margin larger than top.",
-    "page-top": { "$type": "dimension", "$value": "{rhythm.4}" },
-    "page-bottom": { "$type": "dimension", "$value": "{rhythm.6}" }
+    "page-top": {
+      "$type": "dimension",
+      "$value": "{rhythm.4}"
+    },
+    "page-bottom": {
+      "$type": "dimension",
+      "$value": "{rhythm.6}"
+    }
   }
 }
