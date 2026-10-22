@@ -1,45 +1,124 @@
 {
   "$description": "C1XX Foundations · shape. Radius, border and elevation. Shadow colours reference semantic tokens so each theme tints its own shadows (the site uses warm ink, Syncline uses its navy) without changing the geometry.",
   "radius": {
-    "1": { "$type": "dimension", "$value": "4px", "$description": "Inputs, small chips, progress bars." },
-    "2": { "$type": "dimension", "$value": "8px", "$description": "Buttons, tags." },
-    "3": { "$type": "dimension", "$value": "16px", "$description": "Cards, image containers." },
-    "4": { "$type": "dimension", "$value": "24px", "$description": "Large cards, sheets, panels." },
-    "5": { "$type": "dimension", "$value": "32px", "$description": "Device frames, hero media. Syncline's 28/32/34 collapse here." },
-    "full": { "$type": "dimension", "$value": "9999px", "$description": "Pills and circles. Replaces 999px and 50%." }
+    "1": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Inputs, small chips, progress bars.",
+      "$extensions": {
+        "c1xx.rem": "0.25rem"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Buttons, tags.",
+      "$extensions": {
+        "c1xx.rem": "0.5rem"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Cards, image containers.",
+      "$extensions": {
+        "c1xx.rem": "1rem"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Large cards, sheets, panels.",
+      "$extensions": {
+        "c1xx.rem": "1.5rem"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Device frames, hero media. Syncline's 28/32/34 collapse here.",
+      "$extensions": {
+        "c1xx.rem": "2rem"
+      }
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "9999px",
+      "$description": "Pills and circles. Replaces 999px and 50%."
+    },
+    "$description": "Radius uses the same rem scale as spacing. Rule from rem-spacing-system: radius ≈ the container's padding is the default (card radius.4 with padding space.6); radius ≥ 1.5 × padding reads soft / pill (buttons, chips → radius.full); radius < padding reads geometric / technical (data panels → radius.1–2)."
   },
   "border": {
-    "hairline": { "$type": "dimension", "$value": "1px", "$description": "The only width for rules and borders. Kept as a literal in CSS." },
-    "emphasis": { "$type": "dimension", "$value": "2px", "$description": "Progress indicators, focus rings, selected state." }
+    "hairline": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "The only width for rules and borders. Kept as a literal in CSS."
+    },
+    "emphasis": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Progress indicators, focus rings, selected state."
+    }
   },
   "elevation": {
     "$description": "Three levels. Offsets and blurs are fixed; the colour comes from {color.shadow} in the active theme. Level 0 is no shadow (default for a flat editorial surface).",
     "1": {
       "$type": "shadow",
       "$value": [
-        { "offsetX": "0px", "offsetY": "1px", "blur": "2px", "spread": "0px", "color": "{color.shadow.weak}" },
-        { "offsetX": "0px", "offsetY": "4px", "blur": "12px", "spread": "0px", "color": "{color.shadow.weak}" }
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px",
+          "color": "{color.shadow.weak}"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "{color.shadow.weak}"
+        }
       ],
       "$description": "Resting card, chip. Replaces Syncline's 10px/26px cluster."
     },
     "2": {
       "$type": "shadow",
       "$value": [
-        { "offsetX": "0px", "offsetY": "12px", "blur": "28px", "spread": "0px", "color": "{color.shadow.base}" }
+        {
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "28px",
+          "spread": "0px",
+          "color": "{color.shadow.base}"
+        }
       ],
       "$description": "Hovered card, floating control, bottom sheet. Replaces 12–18px / 28–44px cluster."
     },
     "3": {
       "$type": "shadow",
       "$value": [
-        { "offsetX": "0px", "offsetY": "32px", "blur": "80px", "spread": "0px", "color": "{color.shadow.strong}" }
+        {
+          "offsetX": "0px",
+          "offsetY": "32px",
+          "blur": "80px",
+          "spread": "0px",
+          "color": "{color.shadow.strong}"
+        }
       ],
       "$description": "Modal, device frame, project cover. Replaces 30–42px / 80–110px cluster."
     },
     "inset-hairline": {
       "$type": "shadow",
       "$value": [
-        { "offsetX": "0px", "offsetY": "0px", "blur": "0px", "spread": "1px", "color": "{color.border.subtle}", "inset": true }
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "1px",
+          "color": "{color.border.subtle}",
+          "inset": true
+        }
       ],
       "$description": "Border drawn as inset shadow so it does not affect layout. Used on media containers."
     }

@@ -154,6 +154,8 @@ for path, tok in flat.items():
         if path.startswith("gsap.") or path.startswith("field.") or path.startswith("grid.columns"):
             emit(target, name, str(r))
         continue
+    if typ == "dimension" and (path.startswith(("space.", "rhythm.", "radius.")) and not path.endswith("full")) and str(r).endswith("px"):
+        pxv = float(str(r)[:-2]); r = "0" if pxv == 0 else f"{pxv/16:g}rem"
     emit(target, name, str(r))
 
 # theme focus override (light only; dark keeps semantic)
