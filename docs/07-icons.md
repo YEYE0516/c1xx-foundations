@@ -75,17 +75,39 @@ Lucide 是 24 格、2px 描边、圆头圆角、ISC 许可——和底座的 `bo
 
 ## 2 · Pictogram（Syncline 主题）
 
-原来 8 个舞种图在 `icon-refinements.js` 里用 `document.createElementNS` 现画，颜色写死 `#54B8AB / #B69ADE / #F28B6D`（idle）和 `#54B8AB / #E98BA7 / #F6C04D`（active），设计稿里根本没有。
+原来 8 个舞种图在 `icon-refinements.js` 里用 `document.createElementNS` 现画：颜色写死、每个图的网格、线宽、留白各不相同（有的贴边、有的只占一半，有虚线辅助线、有实心圆点、有 4 个矩形），放在一起没有一套形态。第一版只是把它们抽成数据；第二版按规范重画。
 
-现在：
+**规则 = UI icon 的规则 × 2**
 
-- 真源 `themes/syncline/pictograms.json`：每个图是 path / circle / rect 的数据表，三个**颜色槽**而不是颜色值。
-- 槽位 = energy form 的 base：**Idle = cloud / jelly / fuzz，Active = cloud / bloom / star**。`#F28B6D` 不属于任何 form，吸附到 fuzz `#e87555`。
-- 网格 80 × 64，描边 4（辅助虚线 2），在选择器里按 40 × 32 渲染（宽 = `space/10`）。
-- `build/pictograms.py` → `dist/syncline/pictograms/`：16 个 SVG、sprite、`pictograms.js`。颜色写 `var(--form-cloud, #54b8ab)`，inline 时跟 token 走，当图片用有回退。
-- `build.py` 新增 `--form-{cloud,peak,star,fuzz,bloom,jelly}`：六个 form 的 base 并排给出，给"几个 form 同时出现"的场景（pictogram、avatar 环、form 选择器）；"当前 form"仍用 `--accent-*`。
+| | UI icon | Pictogram |
+| --- | --- | --- |
+| 画布 | 24 | 48 |
+| 活动区 | 20（留 2） | 40（留 4） |
+| 描边 | 2 | 4（线宽 : 画布 都是 1 : 12） |
+| 端点 | 圆 | 圆 |
+| 颜色 | 1 个角色 | 3 个槽（form 色） |
 
-Figma：collection **`Syncline · forms`**（`form/cloud … form/jelly`，单 mode），Energy 的 `energy/base` 改为引用它——同一个颜色只定义一次。`Pictogram` 组件集 `Name`（8）× `State`（Idle / Active）= 16，每个形状绑 `form/*`。
+额外的语法：**每个图恰好三笔**，一笔一个颜色槽，没有填充、没有虚线、没有透明度；三笔填满 40 活动区（横排 y = 12 / 24 / 36，或竖排 x = 12 / 24 / 36，间距 12 保证相邻笔画净空 ≥ 6）；每个舞种一个母题，32px 下仍可辨：
+
+| 舞种 | 母题 |
+| --- | --- |
+| hiphop | 楼梯——三个踏步，一拍一级 |
+| cultural | 正弦波——流动、有规律 |
+| freestyle | 三条互不重复的自由曲线 |
+| gentle | 浅弧——低幅 |
+| bounce | 双拱——反复的竖向弹跳 |
+| sway | 竖向 S——左右重心转移 |
+| spin | 同一个环上的三段弧——绕中心旋转 |
+| step | 左右交替的踏板 |
+
+槽位 = energy form 的 base：**Idle = cloud / jelly / fuzz，Active = cloud / bloom / star**。
+
+- 真源 `themes/syncline/pictograms.json`（规则也写在 `rules` 节点里）。
+- `build/pictograms.py` → `dist/syncline/pictograms/`：16 个 SVG、sprite、`pictograms.js`。颜色写 `var(--form-cloud, #54b8ab)`。
+- 原型里在 `rhythm/3`（72）的方形容器里按 56 渲染；行内 32。
+- `build.py` 的 `--form-{cloud,peak,star,fuzz,bloom,jelly}` 给"几个 form 同时出现"的场景用；"当前 form"仍用 `--accent-*`。
+
+Figma：collection **`Syncline · forms`**（`form/cloud … form/jelly`），Energy 的 `energy/base` 引用它。`Pictogram` 组件集 `Name`（8）× `State`（Idle / Active）= 16，每一笔绑 `form/*`，约束 SCALE。
 
 ## 3 · Avatar 图片已入库
 

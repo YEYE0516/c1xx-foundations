@@ -25,9 +25,7 @@ def shape_markup(s, slots):
     if "opacity" in s:
         extra += f' opacity="{s["opacity"]}"'
     if s["type"] == "path":
-        sw = g["strokeGuide"] if s.get("guide") else g["stroke"]
-        dash = f' stroke-dasharray="{s["dash"]}"' if "dash" in s else ""
-        return f'<path d="{s["d"]}" fill="none" stroke="{col}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"{dash}{extra}/>'
+        return f'<path d="{s["d"]}" fill="none" stroke="{col}" stroke-width="{g["stroke"]}" stroke-linecap="round" stroke-linejoin="round"{extra}/>'
     if s["type"] == "circle":
         return f'<circle cx="{s["cx"]}" cy="{s["cy"]}" r="{s["r"]}" fill="{col}"{extra}/>'
     if s["type"] == "rect":
@@ -39,10 +37,10 @@ for name, pic in P["pictograms"].items():
     for state, slots in P["slots"].items():
         body = "".join(shape_markup(s, slots) for s in pic["shapes"])
         suffix = "" if state == "idle" else "-active"
-        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {g["width"]} {g["height"]}" fill="none" '
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {g["size"]} {g["size"]}" fill="none" '
                f'aria-hidden="true" focusable="false" class="syncline-pictogram" data-pictogram="{name}" data-state="{state}">{body}</svg>')
         (out / f"{name}{suffix}.svg").write_text(svg, encoding="utf-8")
-        symbols.append(f'<symbol id="picto-{name}{suffix}" viewBox="0 0 {g["width"]} {g["height"]}">{body}</symbol>')
+        symbols.append(f'<symbol id="picto-{name}{suffix}" viewBox="0 0 {g["size"]} {g["size"]}">{body}</symbol>')
         js[f"{name}{suffix}"] = svg
 
 (out / "pictograms.sprite.svg").write_text(

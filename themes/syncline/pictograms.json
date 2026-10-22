@@ -1,75 +1,198 @@
 {
-  "$description": "Syncline dance-style pictograms. Source of truth for build/pictograms.py and the Figma `Pictogram` set. Grid 80 × 64, stroke 4 (decorative guide strokes 2), round caps/joins. Each pictogram uses three colour slots; the slots are energy-form base colours so the pictograms stay on the same palette as the avatars. Idle = cloud / jelly / fuzz, Active = cloud / bloom / star (the original hard-coded #F28B6D is snapped to fuzz).",
-  "grid": { "width": 80, "height": 64, "stroke": 4, "strokeGuide": 2 },
+  "$description": "Syncline dance-style pictograms. Source of truth for build/pictograms.py and the Figma `Pictogram` set. Same construction rules as the UI icons, doubled: 48 box, 40 live area (4 padding), stroke 4, round caps and joins — so stroke : box = 1 : 12 exactly as 2 : 24. One grammar for all eight: THREE strokes, one per colour slot, no fills, no guides; every glyph fills the 40 × 40 live area (stacked rows at y 12 / 24 / 36 or columns at x 12 / 24 / 36). Idle = cloud / jelly / fuzz, Active = cloud / bloom / star.",
+  "grid": {
+    "size": 48,
+    "liveArea": 40,
+    "padding": 4,
+    "stroke": 4,
+    "terminals": "round"
+  },
+  "rules": [
+    "exactly three strokes, slot 0 → 1 → 2 from top-left to bottom-right",
+    "stroke 4 everywhere; no filled shapes, no dashes, no opacity",
+    "the three strokes fill the live area: stacked glyphs span x 6–42, columned glyphs span y 6–42",
+    "stroke pitch 12 (rows at 12 / 24 / 36) so adjacent strokes keep ≥ 6 clear",
+    "one motif per style, drawn so it still reads at 32 px: staircase · sine · free curve · arc · arch · S · ring · tread"
+  ],
   "slots": {
-    "idle": ["cloud", "jelly", "fuzz"],
-    "active": ["cloud", "bloom", "star"]
+    "idle": [
+      "cloud",
+      "jelly",
+      "fuzz"
+    ],
+    "active": [
+      "cloud",
+      "bloom",
+      "star"
+    ]
   },
   "pictograms": {
     "hiphop": {
       "label": "Hip-hop",
+      "motif": "staircase — three risers, one per beat",
       "shapes": [
-        { "type": "path", "d": "M12 44h12V34h14V24h14V14h16", "slot": 0 },
-        { "type": "path", "d": "M12 51h20V42h16V33h20", "slot": 1 },
-        { "type": "path", "d": "M12 57h13v-7h18v-8h13v-7h12", "slot": 2 }
+        {
+          "type": "path",
+          "d": "M6 42h12v-12",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M18 30h12v-12",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M30 18h12V6",
+          "slot": 2
+        }
       ]
     },
     "cultural": {
       "label": "Cultural Dance",
+      "motif": "sine — flowing, patterned, place-based",
       "shapes": [
-        { "type": "path", "d": "M11 21c12-12 22 12 34 0s19-10 24 0", "slot": 0 },
-        { "type": "path", "d": "M11 32c12-12 22 12 34 0s19-10 24 0", "slot": 1 },
-        { "type": "path", "d": "M11 43c12-12 22 12 34 0s19-10 24 0", "slot": 2 }
+        {
+          "type": "path",
+          "d": "M6 12c6-8 12-8 18 0s12 8 18 0",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M6 24c6-8 12-8 18 0s12 8 18 0",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M6 36c6-8 12-8 18 0s12 8 18 0",
+          "slot": 2
+        }
       ]
     },
     "freestyle": {
       "label": "Freestyle",
+      "motif": "free curves — improvised, unrepeating",
       "shapes": [
-        { "type": "path", "d": "M11 18c18-11 29 15 58-1", "slot": 0 },
-        { "type": "path", "d": "M11 34c16 17 35-20 58 4", "slot": 1 },
-        { "type": "path", "d": "M15 51c20-9 33 9 51-3", "slot": 2 }
+        {
+          "type": "path",
+          "d": "M6 10c10-4 18 12 36 2",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M6 26c14-14 20 14 36-2",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M6 36c8 10 22-16 36 4",
+          "slot": 2
+        }
       ]
     },
     "gentle": {
       "label": "Gentle Mode",
+      "motif": "shallow arcs — soft, low amplitude",
       "shapes": [
-        { "type": "path", "d": "M13 35c14-12 40-12 54 0", "slot": 0 },
-        { "type": "path", "d": "M18 43c12-9 32-9 44 0", "slot": 1, "opacity": 0.82 },
-        { "type": "path", "d": "M24 50c9-6 23-6 32 0", "slot": 2, "opacity": 0.68 }
+        {
+          "type": "path",
+          "d": "M6 16q18-12 36 0",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M6 28q18-12 36 0",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M6 40q18-12 36 0",
+          "slot": 2
+        }
       ]
     },
     "bounce": {
       "label": "Bounce",
+      "motif": "arches — repeated vertical spring",
       "shapes": [
-        { "type": "path", "d": "M10 46c10-28 20-28 30 0s20 28 30 0", "slot": 0, "guide": true, "opacity": 0.4, "dash": "2 6" },
-        { "type": "circle", "cx": 18, "cy": 38, "r": 6, "slot": 0 },
-        { "type": "circle", "cx": 40, "cy": 20, "r": 7, "slot": 1 },
-        { "type": "circle", "cx": 62, "cy": 39, "r": 8, "slot": 2 }
+        {
+          "type": "path",
+          "d": "M6 16q9-12 18 0q9-12 18 0",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M6 28q9-12 18 0q9-12 18 0",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M6 40q9-12 18 0q9-12 18 0",
+          "slot": 2
+        }
       ]
     },
     "sway": {
       "label": "Sway",
+      "motif": "vertical S — side-to-side weight shift",
       "shapes": [
-        { "type": "path", "d": "M19 13c-14 10 14 20 0 38", "slot": 0 },
-        { "type": "path", "d": "M40 13c-14 10 14 20 0 38", "slot": 1 },
-        { "type": "path", "d": "M61 13c-14 10 14 20 0 38", "slot": 2 }
+        {
+          "type": "path",
+          "d": "M12 6c-9 10 9 20 0 36",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M24 6c-9 10 9 20 0 36",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M36 6c-9 10 9 20 0 36",
+          "slot": 2
+        }
       ]
     },
     "spin": {
       "label": "Spin",
+      "motif": "three arcs on one ring — rotation about a centre",
       "shapes": [
-        { "type": "path", "d": "M40 10a22 22 0 1 1-21 29", "slot": 0 },
-        { "type": "path", "d": "M40 18a14 14 0 1 1-13 19", "slot": 1 },
-        { "type": "path", "d": "M40 26a6 6 0 1 1-5 8", "slot": 2 }
+        {
+          "type": "path",
+          "d": "M27.1 6.3A18 18 0 0 1 40.9 30.2",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M37.8 35.6A18 18 0 0 1 10.2 35.6",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M7.1 30.2A18 18 0 0 1 20.9 6.3",
+          "slot": 2
+        }
       ]
     },
     "step": {
       "label": "Step",
+      "motif": "treads — alternating left / right footfalls",
       "shapes": [
-        { "type": "rect", "x": 10, "y": 43, "w": 13, "h": 10, "rx": 4, "slot": 0 },
-        { "type": "rect", "x": 26, "y": 34, "w": 13, "h": 10, "rx": 4, "slot": 1 },
-        { "type": "rect", "x": 42, "y": 25, "w": 13, "h": 10, "rx": 4, "slot": 2 },
-        { "type": "rect", "x": 58, "y": 16, "w": 13, "h": 10, "rx": 4, "slot": 0 }
+        {
+          "type": "path",
+          "d": "M6 12h16",
+          "slot": 0
+        },
+        {
+          "type": "path",
+          "d": "M26 24h16",
+          "slot": 1
+        },
+        {
+          "type": "path",
+          "d": "M6 36h16",
+          "slot": 2
+        }
       ]
     }
   }
