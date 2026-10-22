@@ -35,7 +35,7 @@
 
 - [x] **10/30 周五 · Day 1** — brand layer：把 Syncline 的 teal / lavender / sand 和 Inter + New York 写进 `themes/syncline/`，只覆盖 semantic 层；六种 energy form 各一组 accent
   产出：`themes/syncline/*.json` · 标准：构建脚本能用同一套 foundations 生出网站和 Syncline 两份 `tokens.css`
-- [ ] **11/2 周一 · Day 2** — Figma 组件 I：Button（primary / secondary / ghost / AR / icon × 状态）、Input、Chip、Card；每个 variant 绑 variables，auto layout 用 spacing variables
+- [x] **11/2 周一 · Day 2** — Figma 组件 I：Button（primary / secondary / ghost / AR / icon × 状态）、Input、Chip、Card；每个 variant 绑 variables，auto layout 用 spacing variables
   产出：Figma 组件库前半 · 标准：任何组件选中后属性面板里没有裸数值
 - [ ] **11/3 周二 · Day 3** — Figma 组件 II：Slider、Page control、Bottom sheet、Toast、Avatar（6 个 variant）。（Energy 6 modes + Product collection 已于 Day 1 建好）
   产出：Figma 组件库全部 + modes · 标准：切一次 mode 整页变色，avatar 跟着换
