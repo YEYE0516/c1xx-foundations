@@ -19,7 +19,7 @@
 | --- | --- | --- | --- |
 | 不同的不透明颜色（hex） | **111** | 22 | 网站里 74 个是近中性灰 |
 | 颜色含 rgba / color-mix 变体 | 约 236 | 约 43 | 网站的 aurora 渐变贡献了大部分 |
-| CSS 变量定义 / 其中被引用 ≥ 2 次 | 36 / 17 | 0 | `--soft` 定义了从没用过 |
+| CSS 变量定义 / 其中被引用 ≥ 2 次 | 30 / 17 | 0 | `--soft` 定义了从没用过 |
 | font-family | 3（mono / sans / serif） | **3 套互相覆盖** | Inter → SF Pro → New York |
 | font-size 不同值 | 63（25 个固定 px + 38 个 clamp） | 21（14 个 Tailwind 档 + 7 个 rem） | 网站 7px–64px 之间 25 档 |
 | line-height 不同值 | 28 | 8 | .72 到 1.9，没有倍率关系 |
