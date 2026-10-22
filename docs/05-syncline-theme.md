@@ -56,12 +56,6 @@ Star 和 Bloom 的 strong 推得比较远（黄→深赭、粉→玫红），因
 
 规则：light 模式下 base 填充的控件必须靠 `on` 色文字（全部 ≥ 6.3:1）或 `border/strong` 描边来界定，不能只靠色块边缘。这正是原型现在的做法（pastel 按钮 + 黑字 + 阴影），现在有了数字。Dark 模式下六个 base 全部 ≥ 3.45:1，没有这个问题。
 
-## 明天（Day 2）Figma 要先定的事
+## 明天（Day 2）
 
-Pro 计划一个 collection 最多 4 个 mode，6 个 energy form 放不进一个 collection。两种拆法：
-
-1. **两个 collection**：`Energy · A`（cloud / peak / star）+ `Energy · B`（fuzz / bloom / jelly）。组件绑 A 的变量，演示 B 时要重新绑——不好。
-2. **一个 collection 放 4 个，另外两个作为"扩展"**：组件只绑一个 collection；演示 6 个切换时用 4 个 mode + 两个 form 用 variable 的 alias 手工换。
-3. **Figma 里只做 4 个 mode**（cloud / peak / star / jelly，视觉差异最大的四个），6 个全部在 CSS 和 live 子页上切换。案例里诚实写"Figma Pro 限 4 mode，完整六个见 live 页"。
-
-建议 3：Figma 是对照，不是真源；真源是 JSON，六个都在。
+Figma 里建 `Energy` collection，六个 energy form 六个 mode（实测这个 team 的 collection 可以超过 6 个 mode；之前以为 Pro 限 4 个，是过时的记忆，已用脚本验证推翻）。Semantic 的 `action/*` 和 `fg/on-accent` 改成 alias 到 `Energy` 的 base / strong / soft / on，切 mode 整页跟着变。
