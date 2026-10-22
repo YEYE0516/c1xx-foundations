@@ -1,0 +1,32 @@
+{
+  "$description": "C1XX Foundations · motion. Four durations, three easings, one reduced-motion rule. Values are plain numbers so GSAP, Lenis and CSS can read them the same way. Ambient background animations (the site's 14–17s aurora) are theme-level and not part of the base.",
+  "duration": {
+    "fast": { "$type": "duration", "$value": "120ms", "$description": "State feedback: hover, press, toggle. Replaces 200–250ms." },
+    "base": { "$type": "duration", "$value": "200ms", "$description": "Default transition: reveal, fade, colour. Replaces 300–350ms (the site's most common value, 17×)." },
+    "slow": { "$type": "duration", "$value": "320ms", "$description": "Layout change, sheet open, page element enter. Replaces 450–650ms." },
+    "scene": { "$type": "duration", "$value": "600ms", "$description": "Page-level scene transitions and project covers. Replaces 800–1200ms." }
+  },
+  "easing": {
+    "enter": { "$type": "cubicBezier", "$value": [0.22, 1, 0.36, 1], "$description": "Fast out, long settle. Already shared by both products: the site's main curve (16×) and Syncline's `soft`." },
+    "exit": { "$type": "cubicBezier", "$value": [0.4, 0, 1, 1], "$description": "Accelerate out of view. Elements leaving should not linger." },
+    "standard": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1], "$description": "Symmetric-ish for things that move and stay on screen: sliders, tabs, reorder." },
+    "linear": { "$type": "cubicBezier", "$value": [0, 0, 1, 1], "$description": "Progress, marquee, ambient drift only." }
+  },
+  "stagger": {
+    "base": { "$type": "duration", "$value": "40ms", "$description": "Delay between siblings in a list reveal. Cap total at duration.slow." }
+  },
+  "reduced": {
+    "$description": "Under prefers-reduced-motion: reduce, every duration becomes duration.reduced and transforms that imply movement (translate, scale) are dropped; opacity transitions stay.",
+    "duration": { "$type": "duration", "$value": "1ms" },
+    "keep": { "$type": "string", "$value": "opacity, color, background-color" },
+    "drop": { "$type": "string", "$value": "transform, filter, scroll-behavior, ambient animations" }
+  },
+  "gsap": {
+    "$description": "Same values in GSAP's units (seconds) so the two never drift.",
+    "fast": { "$type": "number", "$value": 0.12 },
+    "base": { "$type": "number", "$value": 0.2 },
+    "slow": { "$type": "number", "$value": 0.32 },
+    "scene": { "$type": "number", "$value": 0.6 },
+    "enter": { "$type": "string", "$value": "cubic-bezier(0.22, 1, 0.36, 1)" }
+  }
+}

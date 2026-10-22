@@ -1,0 +1,41 @@
+{
+  "$description": "C1XX Foundations · spacing. Component-level scale on a 4px unit. Numeric names = multiples of 4 (space.4 = 16px) so the name says the value and the scale never runs out of adjectives. Layout-level spacing (whole 24px rows) lives in layout.json as rhythm.*.",
+  "space": {
+    "0": { "$type": "dimension", "$value": "0px" },
+    "1": { "$type": "dimension", "$value": "4px", "$description": "Hairline gaps, icon-to-label." },
+    "2": { "$type": "dimension", "$value": "8px", "$description": "Tight inner padding, chip padding." },
+    "3": { "$type": "dimension", "$value": "12px", "$description": "Button vertical padding, list gaps." },
+    "4": { "$type": "dimension", "$value": "16px", "$description": "Default inner padding, mobile gutter." },
+    "5": { "$type": "dimension", "$value": "20px", "$description": "Button horizontal padding." },
+    "6": { "$type": "dimension", "$value": "24px", "$description": "= baseline.row. Card padding, grid gap." },
+    "8": { "$type": "dimension", "$value": "32px", "$description": "Large card padding, sheet padding." },
+    "10": { "$type": "dimension", "$value": "40px" },
+    "12": { "$type": "dimension", "$value": "48px", "$description": "= rhythm.2. Boundary between component and layout spacing." }
+  },
+  "size": {
+    "$description": "Control heights. All are multiples of 4; interactive targets are ≥ 44.",
+    "control-sm": { "$type": "dimension", "$value": "32px", "$description": "Chip, compact icon button." },
+    "control-md": { "$type": "dimension", "$value": "40px", "$description": "Default button and input on desktop." },
+    "control-lg": { "$type": "dimension", "$value": "48px", "$description": "Primary CTA, mobile button and input." },
+    "touch-min": { "$type": "dimension", "$value": "44px", "$description": "Minimum hit area for anything tappable (HIG / WCAG 2.5.8)." },
+    "icon-sm": { "$type": "dimension", "$value": "16px" },
+    "icon-md": { "$type": "dimension", "$value": "20px" },
+    "icon-lg": { "$type": "dimension", "$value": "24px" }
+  },
+  "snap": {
+    "$description": "How the inventory's 63 site values map onto the scale. Anything > 48px is layout spacing and goes to rhythm.* instead.",
+    "2-3 → 4": { "$type": "string", "$value": "space.1" },
+    "5-7 → 8": { "$type": "string", "$value": "space.2" },
+    "9-13 → 12": { "$type": "string", "$value": "space.3" },
+    "14-18 → 16": { "$type": "string", "$value": "space.4" },
+    "19-22 → 20": { "$type": "string", "$value": "space.5" },
+    "23-28 → 24": { "$type": "string", "$value": "space.6" },
+    "30-36 → 32": { "$type": "string", "$value": "space.8" },
+    "38-42 → 40": { "$type": "string", "$value": "space.10" },
+    "44-50 → 48": { "$type": "string", "$value": "space.12" },
+    "54-65 → 72": { "$type": "string", "$value": "rhythm.3" },
+    "70-100 → 96": { "$type": "string", "$value": "rhythm.4" },
+    "110-160 → 144": { "$type": "string", "$value": "rhythm.6" },
+    "170-190 → 192": { "$type": "string", "$value": "rhythm.8" }
+  }
+}

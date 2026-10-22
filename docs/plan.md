@@ -18,7 +18,7 @@
   产出：`docs/inventory.md` · 标准：每个值有次数和出处；三个决定写了理由；数字能直接当案例的 before
 - [x] **10/23 周五 · Day 2** — 字阶与网格：用 baseline-to-layers 生成 4pt 基线字阶（行距互为整数倍，正文 16/24 上下各推 3–4 档）；三个断点的栏宽和页边距（每行 7–10 个单词反推）
   产出：`foundations/typography.json`、`layout.json` · 标准：每档 line-height 都是 4 的倍数；栏宽给出 `max-width` 的 ch 值
-- [ ] **10/26 周一 · Day 3** — 间距 / 圆角 / 层级 / 动效：间距刻度数字命名约 10 档；圆角 3 档 + full；阴影 2–3 档；duration 三档、easing 三条（enter / exit / emphasis）、reduced-motion 规则
+- [x] **10/26 周一 · Day 3** — 间距 / 圆角 / 层级 / 动效：间距刻度数字命名约 10 档；圆角 3 档 + full；阴影 2–3 档；duration 三档、easing 三条（enter / exit / emphasis）、reduced-motion 规则
   产出：`spacing.json`、`shape.json`、`motion.json` · 标准：间距全是 4 的倍数；motion 的值能被 GSAP 直接引用
 - [ ] **10/27 周二 · Day 4** — 颜色：primitive 色阶（neutral + accent 各 10 阶）；semantic 角色（bg / fg / border / action / focus）；light + dark 两个 mode；对比度脚本跑一遍。网站具体色值放 `themes/site/`
   产出：`color.json`、对比度报告 · 标准：所有前景/背景对达 WCAG AA；`foundations/` 里不出现任何品牌色值
