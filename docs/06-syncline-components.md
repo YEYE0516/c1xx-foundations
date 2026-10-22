@@ -38,7 +38,7 @@ Button 下方一排：同一个 Primary/lg 实例放进七个容器，只有容�
 | Avatar | Form（6）× Size（sm 48 / lg 96）= 12 | 每个 variant 自带 Energy mode，环和占位色自动是该 form 的 accent。image 层为椭圆 + 图片填充，六张头像已入库（Day 3½） |
 | Bottom sheet | 单组件 | bg/raised，顶部 radius/4，elevation/3，把手 40 × 4；内容槽 rhythm/4；主操作是 Button 的实例（lg，全宽）——组件复用组件 |
 
-共 9 个组件 / 64 个 variant。Day 3½ 加了 Icon（94）、Icon button（24）、Pictogram（16），见 07。Avatar 的 image 槽已填入六张头像。
+共 9 个组件 / 64 个 variant。Day 3½ 加了 Icon（94）、Icon button（24 → 32，Day 5 加 Glass）、Pictogram（16），见 07；Day 5 的逐项核对见 09。Avatar 的 image 槽已填入六张头像。
 
 ## 新增的 Semantic 角色
 
