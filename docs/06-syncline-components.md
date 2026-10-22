@@ -33,7 +33,7 @@ Button 下方一排：同一个 Primary/lg 实例放进七个容器，只有容�
 | 组件 | 矩阵 | 说明 |
 | --- | --- | --- |
 | Slider | State（Default / Disabled）= 2 | 轨道 bg/sunken，填充 action/primary，24px 滑块 + elevation/1。代码里滑块命中区要补到 size/touch-min 44 |
-| Page control | Active（1–6）= 6 | 激活点拉长到 space/5 并取 action/primary，其余 space/2 取 border/control |
+| Page control | Active（1–7）= 7 | 激活点拉长到 space/5 并取 action/primary，其余 space/2 取 border/control。原型 7 屏一屏一点（Welcome 不显示）；代码里是 `<PageControl>` |
 | Toast | Tone（Neutral / Accent / Signal）= 3 | bg/inverse / action/primary / action/signal，elevation/2，radius/3。Message 文字属性 |
 | Avatar | Form（6）× Size（sm 48 / lg 96）= 12 | 每个 variant 自带 Energy mode，环和占位色自动是该 form 的 accent。image 层为椭圆 + 图片填充，六张头像已入库（Day 3½） |
 | Bottom sheet | 单组件 | bg/raised，顶部 radius/4，elevation/3，把手 40 × 4；内容槽 rhythm/4；主操作是 Button 的实例（lg，全宽）——组件复用组件 |

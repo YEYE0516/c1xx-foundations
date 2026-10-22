@@ -48,6 +48,10 @@ scene 容器的 `min-h` 吸附到整行（330 → 336、285 → 288、410 → 40
 
 ![bloom](img/syncline-energy-bloom.png)
 
+### 5½ · 进度点换成真组件
+
+原来的页面进度点是补丁里用 `section::before / ::after` 画的七个 radial-gradient，JS 再按标题文字算偏移——和 Figma 的 `Page control` 没有关系。现在是 `<PageControl>`：7 个 `span`，未激活 `space/2` × `border/control`，激活拉长到 `space/5` × `action/primary`，间距 `space/2`，`duration/base` + `easing/enter` 过渡，带 `role="progressbar"`。Figma 的 `Page control` 同步补到 7 个点、Active=1–7。
+
 ### 6 · 结构
 
 ```
@@ -65,5 +69,5 @@ Portfolio_Website/
 ## 还没做 / Day 5 看
 
 - framer-motion 的 `transition={{ duration: 0.22 }}` 这类 JS 时长还是数字，可以读 `motion.json` 的 `gsap.*` 秒值。
-- 两个 JS 补丁是按 DOM 查找改属性的（`aria-label`、`data-*`），正确的做法是写进 JSX。行为没变，先留着。
+- 剩下的 JS 补丁（save 流程的 a11y 属性）是按 DOM 查找改的，正确的做法是写进 JSX。行为没变，先留着。
 - 浮动返回按钮的描边 `border/subtle` 比原来的 `#E8E0D6` 重一档，Day 5 对 Figma 时决定要不要给 Icon button 的 glass 变体单独定描边。
