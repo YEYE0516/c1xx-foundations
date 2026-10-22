@@ -33,7 +33,7 @@
 
 目标：Syncline 作为第二个品牌主题挂在底座上，Figma 里一键切 energy form，原型跑在 token 上。
 
-- [ ] **10/30 周五 · Day 1** — brand layer：把 Syncline 的 teal / lavender / sand 和 Inter + New York 写进 `themes/syncline/`，只覆盖 semantic 层；六种 energy form 各一组 accent
+- [x] **10/30 周五 · Day 1** — brand layer：把 Syncline 的 teal / lavender / sand 和 Inter + New York 写进 `themes/syncline/`，只覆盖 semantic 层；六种 energy form 各一组 accent
   产出：`themes/syncline/*.json` · 标准：构建脚本能用同一套 foundations 生出网站和 Syncline 两份 `tokens.css`
 - [ ] **11/2 周一 · Day 2** — Figma 组件 I：Button（primary / secondary / ghost / AR / icon × 状态）、Input、Chip、Card；每个 variant 绑 variables，auto layout 用 spacing variables
   产出：Figma 组件库前半 · 标准：任何组件选中后属性面板里没有裸数值

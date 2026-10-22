@@ -24,6 +24,8 @@ def resolve(v, mode):
             except KeyError: val = get(ref, theme)
         elif ref.startswith("theme."):
             val = get(ref, theme)
+        elif ref.startswith("energy."):
+            val = get(ref, theme)
         elif ref.startswith("neutral.") or ref.startswith("accent."):
             val = get(ref, found)
         elif ref.startswith("shadow."):
@@ -72,7 +74,10 @@ for mode in ("light", "dark"):
                 a = resolve(theme["theme"]["focus"]["ring"]["$value"], mode)
             else:
                 a = resolve(get(f"semantic.{mode}.{fg}", found), mode)
-            b = resolve(get(f"semantic.{mode}.{bg}", found), mode)
+            if bg == "bg.canvas" and mode == "light" and "canvas" in theme.get("theme", {}):
+                b = resolve(theme["theme"]["canvas"]["$value"], mode)
+            else:
+                b = resolve(get(f"semantic.{mode}.{bg}", found), mode)
         except KeyError as e:
             print(f"| {fg} | {bg} | — | | | | 未解析 {e} |"); continue
         if not (a.startswith("#") and b.startswith("#")):
@@ -80,4 +85,21 @@ for mode in ("light", "dark"):
         c = contrast(a, b)
         ok = lambda t: "✓" if c >= t else "✗"
         print(f"| {fg} `{a}` | {bg} `{b}` | **{c:.2f}** | {ok(4.5)} | {ok(3)} | {ok(7)} | {use} |")
+    print()
+
+# energy forms (if the theme has them)
+if "energy" in theme:
+    canvas = {"light": resolve(theme["theme"]["canvas"]["$value"], "light") if "canvas" in theme["theme"] else resolve(get("semantic.light.bg.canvas", found), "light"),
+              "dark": resolve(get("semantic.dark.bg.canvas", found), "dark")}
+    print("## energy forms")
+    print()
+    print("| form | mode | base on canvas (非文字 ≥3) | strong on canvas (文字 ≥4.5) | on over base (文字 ≥4.5) |")
+    print("| --- | --- | --- | --- | --- |")
+    for form, node in theme["energy"].items():
+        if form.startswith("$"): continue
+        for mode in ("light", "dark"):
+            g = lambda k: resolve(node[mode][k]["$value"], mode)
+            c1, c2, c3 = contrast(g("base"), canvas[mode]), contrast(g("strong"), canvas[mode]), contrast(g("on"), g("base"))
+            ok = lambda c, t: "✓" if c >= t else "✗"
+            print(f"| {form} | {mode} | {c1:.2f} {ok(c1,3)} | {c2:.2f} {ok(c2,4.5)} | {c3:.2f} {ok(c3,4.5)} |")
     print()

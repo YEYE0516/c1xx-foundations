@@ -1,0 +1,398 @@
+{
+  "$description": "Theme B · Syncline — a public dance companion app. Fills the foundations' contracts; the default accent is the Cloud energy form (teal). Six energy forms live under `energy.*` and become modes in Figma and data-attribute scopes in CSS.",
+  "theme": {
+    "font": {
+      "body": {
+        "$type": "fontFamily",
+        "$value": [
+          "Inter",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "display": {
+        "$type": "fontFamily",
+        "$value": [
+          "New York",
+          "Iowan Old Style",
+          "Georgia",
+          "serif"
+        ],
+        "$description": "Apple's optical serif in Safari/iOS; Georgia elsewhere. Bold, for the screen titles."
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "Inter",
+          "system-ui",
+          "sans-serif"
+        ],
+        "$description": "No mono voice in this product; the role aliases to body so labels still resolve."
+      }
+    },
+    "accent": {
+      "$description": "Default accent = Cloud. The build swaps in another energy form by name.",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#1f7a77"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#e0ece6"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#1e312c"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "signal": {
+      "$type": "color",
+      "$value": "#cc3b12",
+      "$description": "Attention / error — the Fuzz strong. 4.6:1 on light canvas."
+    },
+    "shadow": {
+      "hue": {
+        "$type": "color",
+        "$value": "#152a55",
+        "$description": "Navy, not black: every Syncline shadow in the prototype was rgba(21,42,85,x). Elevation geometry stays the base's."
+      }
+    },
+    "canvas": {
+      "$type": "color",
+      "$value": "{neutral.50}",
+      "$description": "Overrides semantic.bg.canvas: the prototype's #f7f4ef is one step lighter than the site's paper."
+    }
+  },
+  "energy": {
+    "$description": "Six energy forms, each a full accent set in both modes. base = the form's own colour from the prototype's data.ts; strong = base pushed until it reads as text at ≥ 4.5:1 on the canvas; soft = 14–18% tint for selected states; on = ink or paper, whichever contrasts more with base. Derived by build/derive-accent.py, not by eye.",
+    "cloud": {
+      "$description": "Cloud — Calm · Gentle · Flowing",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#1f7a77"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#e0ece6"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#54b8ab"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#1e312c"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "peak": {
+      "$description": "Peak — Focused · Grounded",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#3f68b8"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#3f68b8"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#dde1e8"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#f7f5f0"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#3f68b8"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#587dc6"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#1a222e"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#f7f5f0"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "star": {
+      "$description": "Star — Radiant · Bold · Expressive",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#f6c04d"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#966600"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#f7eed9"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#f6c04d"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#f6c04d"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#3b321b"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "fuzz": {
+      "$description": "Fuzz — Playful · Free · Spontaneous",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#e87555"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#cc3b12"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#f5e3da"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#e87555"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#e87555"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#39251c"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "bloom": {
+      "$description": "Bloom — Warm · Open · Tender",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#e98ba7"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#da1b54"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#f5e6e6"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#e98ba7"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#e98ba7"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#39292b"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    },
+    "jelly": {
+      "$description": "Jelly — Soft · Flexible · Bouncy",
+      "light": {
+        "base": {
+          "$type": "color",
+          "$value": "#b69ade"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#8753d0"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#eee8ed"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      },
+      "dark": {
+        "base": {
+          "$type": "color",
+          "$value": "#b69ade"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#b69ade"
+        },
+        "soft": {
+          "$type": "color",
+          "$value": "#302b35"
+        },
+        "on": {
+          "$type": "color",
+          "$value": "#121310"
+        },
+        "signal": {
+          "$type": "color",
+          "$value": "{theme.signal}"
+        }
+      }
+    }
+  },
+  "ambient": {
+    "$description": "The prototype's background field — three radial glows over the canvas. Theme-level, outside the contract, kept as-is.",
+    "cyan": {
+      "$type": "color",
+      "$value": "rgb(143 216 220 / 0.26)"
+    },
+    "mauve": {
+      "$type": "color",
+      "$value": "rgb(169 155 178 / 0.20)"
+    },
+    "clay": {
+      "$type": "color",
+      "$value": "rgb(201 121 85 / 0.13)"
+    }
+  }
+}
