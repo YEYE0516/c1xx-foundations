@@ -41,12 +41,12 @@ Figma 的 Code Connect 需要 Organization / Enterprise 计划（API 直接拒�
 
 ## Figma 公开
 
-API 改不了分享权限——你在 Figma 里 **Share → Anyone with the link → can view**，把链接贴进 README 和案例页。
+已经是 **Anyone · can view**：https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si — README 里已有，案例页 Week 3 放。
 
 ## Week 2 收尾清单
 
 - [x] 原型跑在 token 上
 - [x] 组件逐个核对
 - [x] before / after 两组数字
-- [ ] Figma 设公开（你来）
+- [x] Figma 公开（Anyone · can view）
 - [ ] Week 3 Day 1：案例页骨架 + `/foundations`

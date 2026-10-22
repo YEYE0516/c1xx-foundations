@@ -43,7 +43,7 @@
   产出：`docs/07-icons.md`、`foundations/icons.json` + `icons/`、`dist/icons/`、`themes/syncline/pictograms.json`、`dist/syncline/pictograms/`、Figma 页 05 · 标准：icon 文件里 0 个颜色值；pictogram 里 0 个裸 hex；Figma 和代码的 icon / pictogram 同一份数据生成
 - [x] **11/4 周三 · Day 4** — 原型换 token：Tailwind config 指向生成的 token；`hig-refinements.css` 里的硬编码全部换成 variables；三套字体收成两套；`icon-refinements.js` 改用生成的 pictogram，icon 尺寸/线宽按 Day 3½ 的规则
   产出：原型新版本上线（源码进 `Portfolio_Website/syncline/`，`docs/08-syncline-prototype.md`） · 标准：原型 CSS 里 grep 不到裸 hex ✓（189 → 0）；before / after 数字写进 08；`data-energy` 一个属性整 app 换色
-- [x] **11/5 周四 · Day 5** — 校验 + 收尾：Figma 和代码逐个组件对状态（Button / Icon button / Card 三处改代码，Icon button 加 Glass、Card 标题改 display、Page control 补到 7）；Code Connect 需要 Org 计划，改为每个组件描述里写 `Code:` 指向；Figma 设公开（待你操作）
+- [x] **11/5 周四 · Day 5** — 校验 + 收尾：Figma 和代码逐个组件对状态（Button / Icon button / Card 三处改代码，Icon button 加 Glass、Card 标题改 display、Page control 补到 7）；Code Connect 需要 Org 计划，改为每个组件描述里写 `Code:` 指向；Figma 已公开（Anyone · can view）
   产出：`docs/09-verification.md`、公开链接 · 标准：7 个有消费者的组件每个状态两边一致 ✓；before / after 两组数字齐 ✓
 
 周末 10/31–11/1 是缓冲。组件做不完先砍 Toast 和 Bottom sheet，再砍 Card，modes 和 Avatar 不砍。
@@ -70,7 +70,7 @@
 - [ ] GitHub 仓库：`tokens.json`（DTCG）、构建脚本、README 架构图，tag v1.0.0
 - [ ] c1xxstudio.com 跑在底座 token 上，CSS 无裸 hex / px
 - [x] Syncline 原型跑在 token 上
-- [ ] Figma 公开文件：6 个 collection，6 个 energy modes，12 个组件（待设公开）
+- [x] Figma 公开文件：6 个 collection，6 个 energy modes，12 个组件 — https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si
 - [ ] Work 第 4 条目案例页：问题 → 决策 → 证据 → 数字
 - [ ] `/foundations`、`/syncline` 两个 live 子页
 - [x] before / after 盘点数字
