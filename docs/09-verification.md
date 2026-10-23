@@ -10,7 +10,7 @@
 | **Icon button** 24 → 32 | `FloatingBackButton` / `FloatingMenuButton` / 关闭按钮 | 代码是玻璃态（白 78% + 描边 + 阴影）浮在照片上，Figma 没有这种样式 | Figma 加 **Style=Glass**（`bg/raised` 80% + `border/subtle` + `elevation/2`，hover 实心，pressed 88%）；代码三个按钮统一为 `bg-raised/80 border-line-subtle text-ink shadow-2` | ✓ |
 | **Card** 3 | `MoodCard` / `DanceStyleCard` / `StateCard`（Flat ↔ Selected）、`IntensitySelector`（Raised）、`AvatarCard` | 内边距 16（圆角 24，违反"圆角 ≈ 内边距"）；选中态是 `accent` 描边 + 白底 + 阴影，Figma 是 `selected-bg` + `fg/accent` 描边；未选中是白 55% 玻璃，Figma 是 `bg/surface` + `border/subtle`；标题 Figma 用 Inter h4，代码用衬线 | 代码改 `p-6`、选中 `border-accent-ink bg-accent-soft`、Flat `bg-surface border-line-subtle`；Figma 标题改 `heading/h3`（display 字体）——衬线卡片标题是产品声音，系统跟着产品 | ✓ |
 | **Page control** 6 → 7 | `<PageControl>` | 原来是 CSS `::before/::after` 画的，和组件无关；Figma 6 点，原型 7 屏 | 代码写成真组件（Day 4 收尾时）；Figma 补第 7 点和 Active=7 | ✓ |
-| **Avatar** 12 | `AvatarImage` | 原型展示整张插画，不裁圆 | 圆形裁切留给列表 / 摘要场景；六张图已入库；描述里写明 | ✓（用法不同，不是不一致） |
+| **Avatar** 12 | `AvatarImage` | 原型展示整张插画，Figma 裁了圆加了环 | Figma 改成插画本身 + 可选 glow（W3 Day 2），和原型一致 | ✓ |
 | **Icon** 94 | `lucide-react` + `h-icon-md w-icon-md` | — | 7 个用到的全在集合里；线宽 2、`currentColor` | ✓ |
 | **Pictogram** 16 | `<DanceGlyph>` | — | 同一份 JSON 生成 | ✓ |
 | **Chip** 6 | 无 | 原型没有 chip 场景 | 描述里写明候选用法（GOOD FOR / traits 标签） | — |
