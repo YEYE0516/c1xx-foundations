@@ -3,11 +3,28 @@
 One brand-agnostic token base, two products on top of it.
 
 ```
-foundations/      scales + rules — no brand colour, no font name
-     │
-     ├── themes/site/        c1xxstudio.com            ← live, v0.1.0
-     └── themes/syncline/    Syncline, 6 energy-form modes   (week 2)
+                       foundations/                  scales + rules · no brand colour, no font name
+                       ├─ typography · layout         24px row · 12 tiers · display per breakpoint
+                       ├─ spacing · shape · motion    rem on 4px · 5 radii · 3 elevations · 4 durations
+                       ├─ color                       13-step warm neutral · roles light/dark · accent CONTRACT
+                       └─ icons                       94 glyphs · 24 grid · 3 sizes
+                              │
+              ┌───────────────┴────────────────┐
+     themes/site/                      themes/syncline/
+     accent = ink · signal red         accent = Cloud + 6 energy forms (modes)
+     Manrope · Newsreader · DM Mono    Inter · New York · navy shadow · pictograms
+              │                                 │
+        build/build.py  ──────────────────────  build/build.py
+              │                                 │
+     dist/site/tokens.css              dist/syncline/tokens.css (+ tokens.scoped.css)
+              │                                 │
+     c1xxstudio.com  (src/tokens.css)   Syncline prototype (Tailwind theme → tokens)
+                                        c1xxstudio.com/syncline (scoped theme inside the site)
+
+     Figma · C1XX Foundations: Primitives · Semantic (Light/Dark) · Product (site/syncline) · Energy (6) · forms · scene
 ```
+
+Live: [c1xxstudio.com/foundations](https://c1xxstudio.com/foundations) renders the base from its own tokens · [c1xxstudio.com/syncline](https://c1xxstudio.com/syncline) switches the six forms · [the case](https://c1xxstudio.com/work/foundations) has the before / after.
 
 `foundations/` defines *what exists* (a 24px row, a 4px unit, twelve type tiers, ten spacing steps, three elevations, four durations, colour **roles**). A theme defines *what it looks like* (families, the accent set, the shadow hue). `build/build.py` resolves one onto the other and writes `dist/<theme>/tokens.css`, which the product consumes.
 
@@ -75,13 +92,33 @@ A theme may override a semantic value. It may never edit `foundations/`.
 
 ## Using the output
 
+**Plain CSS** — import once; light is `:root`, dark is `[data-theme="dark"]`, display tiers carry their own breakpoints so a component never writes `@media` for type size.
+
 ```css
-@import './tokens.css';           /* light is :root; dark is [data-theme="dark"] */
-.card { padding: var(--space-6); border-radius: var(--radius-3); box-shadow: var(--elevation-1); }
+@import './tokens.css';
+.card { padding: var(--space-6); border-radius: var(--radius-4); box-shadow: var(--elevation-1); }
 h1    { font-size: var(--display-2-size); line-height: var(--display-2-lh); }
 ```
 
-Display tiers respond on their own (the breakpoints live inside `tokens.css`), so a component never writes its own `@media` for type size.
+**Tailwind** — replace the scales wholesale, so classes that are not on the base do not exist (see `Portfolio_Website/syncline/tailwind.config.js`):
+
+```js
+const rgb = (v) => `rgb(var(--${v}-rgb) / <alpha-value>)`;        // alpha modifiers keep working
+theme: { fontSize: { sm: ['var(--body-size)', { lineHeight: 'var(--body-lh)' }], … },
+         borderRadius: { 1: 'var(--radius-1)', …, full: 'var(--radius-full)' },
+         boxShadow: { 1: 'var(--elevation-1)', 2: 'var(--elevation-2)', 3: 'var(--elevation-3)' },
+         extend: { colors: { canvas: rgb('bg-canvas'), ink: rgb('fg-primary'), accent: rgb('accent-base'), … } } }
+```
+
+**Energy forms (Syncline)** — one attribute re-points every accent-derived role:
+
+```html
+<main data-energy="bloom"> … </main>   <!-- --accent-*, --action-primary*, --fg-accent follow -->
+```
+
+**A second theme inside a page** — `dist/<theme>/tokens.scoped.css` hangs the same tokens on `.theme-<name>` instead of `:root`.
+
+**Icons & pictograms** — `dist/icons/sprite.svg` + `icons.css` (`.icon`, `.icon--sm|lg`, `.icon-button`); `dist/syncline/pictograms/pictograms.js` exports the 16 pictogram SVG strings.
 
 ## Format
 
