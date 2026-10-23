@@ -52,8 +52,8 @@
 
 目标：Work 下的案例页上线，面试官 30 秒内能看到 live 页、Figma 文件、代码三样东西。案例页本身也用底座 token 和基线网格排。
 
-- [ ] **11/6 周五 · Day 1** — 案例页骨架 + `/foundations` 子页：Work 列表加第 4 个条目；按问题—决策—证据—数字四段搭结构；foundations 子页用 token 本身渲染字阶、间距、颜色、动效
-  产出：案例页空壳、foundations 子页 · 标准：子页每个展示块的样式来自 token，改 JSON 页面跟着变
+- [x] **11/6 周五 · Day 1** — 案例页骨架 + `/foundations` 子页：Work 列表加第 4 个条目（封面从 token 渲染）；案例页 00 live → 01 问题 → 02 决策 → 03 证据 → 04 数字；`/foundations` 用 `getComputedStyle` 读 `tokens.css` 渲染字阶 / 间距 / 形状 / 颜色 / 动效，带 light-dark 切换；顺手给网站加了 URL 路由（`/work/<slug>`、`/foundations`、`/syncline`）和 Vercel rewrite
+  产出：案例页骨架（真数字已填）、foundations 子页 · 标准：子页每个展示块的样式来自 token ✓（页面上没有一个手写数值）
 - [ ] **11/9 周一 · Day 2** — `/syncline` 子页：顶部 energy-form 切换器，下面组件全部跟着变
   产出：syncline 子页 · 标准：6 个状态都对，移动端不溢出
 - [ ] **11/10 周二 · Day 3** — 案例写作：问题段放盘点表的 before 数字和代码截图；决策段讲为什么分底座和主题、刻度怎么定；结果段放 after 数字；录 10 秒 mode 切换视频
