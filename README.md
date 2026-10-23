@@ -1,6 +1,8 @@
 # C1XX Foundations
 
-One brand-agnostic token base, two products on top of it.
+**Yixuan Chen's design system** — one brand-agnostic token base, two products on top of it: [c1xxstudio.com](https://c1xxstudio.com) and the Syncline prototype. Same JSON → `tokens.css` × 2 → Figma variables → shipped code.
+
+陈宜瑄的设计系统：一个底座，两个主题。底座只管刻度和规则，不含品牌色；每个产品填一份五色 accent 合同和字体。案例页（中英）：[c1xxstudio.com/work/foundations](https://c1xxstudio.com/work/foundations)
 
 ```
                        foundations/                  scales + rules · no brand colour, no font name
