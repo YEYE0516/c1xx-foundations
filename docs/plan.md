@@ -60,6 +60,8 @@
   产出：案例全文（`Portfolio_Website/src/foundations/FoundationsProject.tsx`）、`docs/img/mode-switch.mp4`、`docs/img/code-before-after.png` · 标准：量化数字 12 个 ✓；before / after 对比图 2 张 ✓
 - [x] **11/11 周三 · Day 4** — 外部链接 + 简历：Figma 公开链接（案例页 04 节）、GitHub README 架构图 + 四种用法（CSS / Tailwind / data-energy / scoped）+ live 链接、Syncline 案例第 05 节下加摘要 + 跳转；简历在 Figma Resume 文件里出 2.0（`YixuanChen_EN2.0`、`陈宜瑄简历2.0`）：C1XX Foundations 作为第一条项目经历（3 条带数字）、技能加 Systems / 设计系统一行、简介提一句；为了留在一页，Syncline / ADP / Blooming / 实习各收一条，EN 的条目改成 标题 / 角色 + 右对齐日期 / 要点 的 auto-layout 结构
   产出：链接齐、简历 2.0 · 标准：三个外链从案例页一跳可达 ✓；简历那行有数字 ✓（111→28、189→0、12/237、94）
+- [x] **11/12 周四 · Day 4½ · 双语 + 归属**（插入步骤）— 案例页加"摘要 · 30 秒版"中文块（问题 / 决策 / 证据 / 数字四行），每节英文标题、图注、数字标签下配一行中文，正文不逐条翻；`/foundations`、`/syncline` 标题和各节说明配中文。名字保留 C1XX Foundations，但每个脱离网站的地方都带"Yixuan Chen's design system"：Work 副标题、案例页 eyebrow、README 首行（中英）、Figma 页 01 顶部 About 块。Figma 文件名 API 改不了，手动改成 "C1XX Foundations · Design System"；GitHub 仓库 description 代理不允许写，手动填
+  产出：中文层上线 · 标准：只看中文能说出"一个底座两个主题 + 四个数字"
 - [ ] **11/12 周四 · Day 5** — 自查 + 上线：手机、桌面各过一遍；找一个人 5 分钟内看完说出它是什么；修完发布
   产出：案例上线 · 标准：对方能复述出"一个底座两个主题"
 
