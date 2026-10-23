@@ -54,8 +54,8 @@
 
 - [x] **11/6 周五 · Day 1** — 案例页骨架 + `/foundations` 子页：Work 列表加第 4 个条目（封面从 token 渲染）；案例页 00 live → 01 问题 → 02 决策 → 03 证据 → 04 数字；`/foundations` 用 `getComputedStyle` 读 `tokens.css` 渲染字阶 / 间距 / 形状 / 颜色 / 动效，带 light-dark 切换；顺手给网站加了 URL 路由（`/work/<slug>`、`/foundations`、`/syncline`）和 Vercel rewrite
   产出：案例页骨架（真数字已填）、foundations 子页 · 标准：子页每个展示块的样式来自 token ✓（页面上没有一个手写数值）
-- [ ] **11/9 周一 · Day 2** — `/syncline` 子页：顶部 energy-form 切换器，下面组件全部跟着变
-  产出：syncline 子页 · 标准：6 个状态都对，移动端不溢出
+- [x] **11/9 周一 · Day 2** — `/syncline` 子页：`build.py` 新增 `tokens.scoped.css`（token 挂在 `.theme-syncline` 而不是 `:root`），Syncline 主题整套跑在网站页面里；顶部六个 form 切换器 + light/dark，中间六个 accent 角色的实时读数，下面 Button / Icon button / Chip / Page control / Slider / Card + Pictogram / Input / Toast / Avatar 全部只写角色，一个 `data-energy` 全变
+  产出：syncline 子页 · 标准：6 个状态都对 ✓，移动端不溢出 ✓（390 宽 scrollWidth = clientWidth）
 - [ ] **11/10 周二 · Day 3** — 案例写作：问题段放盘点表的 before 数字和代码截图；决策段讲为什么分底座和主题、刻度怎么定；结果段放 after 数字；录 10 秒 mode 切换视频
   产出：案例全文、视频 · 标准：至少 3 个量化数字；before / after 对比图一张
 - [ ] **11/11 周三 · Day 4** — 外部链接 + 简历：Figma 公开链接、GitHub README 架构图、Syncline 案例第 05 节改成摘要 + 跳转；简历加一行中英版
@@ -72,7 +72,7 @@
 - [x] Syncline 原型跑在 token 上
 - [x] Figma 公开文件：6 个 collection，6 个 energy modes，12 个组件 — https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si
 - [ ] Work 第 4 条目案例页：问题 → 决策 → 证据 → 数字
-- [ ] `/foundations`、`/syncline` 两个 live 子页
+- [x] `/foundations`、`/syncline` 两个 live 子页
 - [x] before / after 盘点数字
 - [ ] 10 秒 mode 切换视频
 - [ ] Syncline 案例第 05 节改为摘要 + 跳转
