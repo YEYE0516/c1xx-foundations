@@ -58,8 +58,8 @@
   产出：syncline 子页 · 标准：6 个状态都对 ✓，移动端不溢出 ✓（390 宽 scrollWidth = clientWidth）
 - [x] **11/10 周二 · Day 3** — 案例写作：01 问题段 4 个 before 数字 + 盘点结论；02 决策段讲为什么不做两套、刻度怎么定（baseline-grid-calc / rem-spacing-system 两个 skill）、阴影和颜色合同；03 证据：10 秒 `/syncline` 切换视频（Playwright 录制，mp4 + webm）、代码 before/after 图、原型 before/after、bloom 换色；04 after 8 个数字 + 下一步
   产出：案例全文（`Portfolio_Website/src/foundations/FoundationsProject.tsx`）、`docs/img/mode-switch.mp4`、`docs/img/code-before-after.png` · 标准：量化数字 12 个 ✓；before / after 对比图 2 张 ✓
-- [ ] **11/11 周三 · Day 4** — 外部链接 + 简历：Figma 公开链接、GitHub README 架构图、Syncline 案例第 05 节改成摘要 + 跳转；简历加一行中英版
-  产出：链接齐、简历更新 · 标准：三个外链从案例页一跳可达；简历那行有数字
+- [x] **11/11 周三 · Day 4** — 外部链接 + 简历：Figma 公开链接（案例页 04 节）、GitHub README 架构图 + 四种用法（CSS / Tailwind / data-energy / scoped）+ live 链接、Syncline 案例第 05 节下加摘要 + 跳转；简历在 Figma Resume 文件里出 2.0（`YixuanChen_EN2.0`、`陈宜瑄简历2.0`）：C1XX Foundations 作为第一条项目经历（3 条带数字）、技能加 Systems / 设计系统一行、简介提一句；为了留在一页，Syncline / ADP / Blooming / 实习各收一条，EN 的条目改成 标题 / 角色 + 右对齐日期 / 要点 的 auto-layout 结构
+  产出：链接齐、简历 2.0 · 标准：三个外链从案例页一跳可达 ✓；简历那行有数字 ✓（111→28、189→0、12/237、94）
 - [ ] **11/12 周四 · Day 5** — 自查 + 上线：手机、桌面各过一遍；找一个人 5 分钟内看完说出它是什么；修完发布
   产出：案例上线 · 标准：对方能复述出"一个底座两个主题"
 
@@ -67,7 +67,7 @@
 
 ## 最终交付清单
 
-- [ ] GitHub 仓库：`tokens.json`（DTCG）、构建脚本、README 架构图，tag v1.0.0
+- [x] GitHub 仓库：JSON（DTCG）、构建脚本、README 架构图（tag v1.0.0 留到 Day 5 上线后打）
 - [ ] c1xxstudio.com 跑在底座 token 上，CSS 无裸 hex / px
 - [x] Syncline 原型跑在 token 上
 - [x] Figma 公开文件：6 个 collection，6 个 energy modes，12 个组件 — https://www.figma.com/design/ZThJK81NT635ehYKdTd3Si
@@ -75,5 +75,5 @@
 - [x] `/foundations`、`/syncline` 两个 live 子页
 - [x] before / after 盘点数字
 - [x] 10 秒 mode 切换视频
-- [ ] Syncline 案例第 05 节改为摘要 + 跳转
-- [ ] 简历一行（中 / 英）
+- [x] Syncline 案例第 05 节改为摘要 + 跳转
+- [x] 简历一行（中 / 英）— 2.0 在 Figma Resume 文件
