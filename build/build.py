@@ -167,6 +167,12 @@ for path, tok in flat.items():
         pxv = float(str(r)[:-2]); r = "0" if pxv == 0 else f"{pxv/16:g}rem"
     emit(target, name, str(r), rgb=(typ == "color"))
 
+# fixed mobile copies of the display tiers: a product that always renders in a phone frame (Syncline)
+# pins its type to these instead of following the browser window's breakpoint
+for l in bp["mobile"]:
+    n, v = [x.strip() for x in l.strip().rstrip(";").split(":", 1)]
+    emit(root, f"{n}-mobile", v)
+
 # theme focus override (light only; dark keeps semantic)
 if "theme.focus.ring" in flat:
     root.append(f"  --focus-ring: {resolve(flat['theme.focus.ring']['value'], 'light')};")

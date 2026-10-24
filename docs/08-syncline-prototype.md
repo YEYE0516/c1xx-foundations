@@ -71,3 +71,12 @@ Portfolio_Website/
 - framer-motion 的 `transition={{ duration: 0.22 }}` 这类 JS 时长还是数字，可以读 `motion.json` 的 `gsap.*` 秒值。
 - 剩下的 JS 补丁（save 流程的 a11y 属性）是按 DOM 查找改的，正确的做法是写进 JSX。行为没变，先留着。
 - 浮动返回按钮的描边 `border/subtle` 比原来的 `#E8E0D6` 重一档，Day 5 对 Figma 时决定要不要给 Icon button 的 glass 变体单独定描边。
+
+## 修复 · 桌面浏览器里标题过大（10/24）
+
+`--display-N-size` 按浏览器窗口的断点切换。原型单独打开时窗口是 1440 宽，手机壳 402 宽，标题拿到桌面档 128px，撑出屏幕。Syncline 只存在于手机里，所以：
+
+- `build.py` 额外输出每档 display 的移动端固定值 `--display-N-size-mobile` / `--display-N-lh-mobile`
+- 原型的 `PhoneShell` 加 `data-device="phone"`，在这个作用域里把 `--display-N-*` 指向 `-mobile`
+
+结果：任何窗口宽度下，手机壳里的 display-1 都是 72/60。
